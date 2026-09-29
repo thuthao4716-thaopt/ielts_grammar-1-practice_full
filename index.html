@@ -1,1430 +1,1198 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>IELTS Grammar Master - Học & Luyện Ngữ Pháp Dễ Nhớ</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>IELTS Grammar Mastery - Handbook & Interactive Practice</title>
+  <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts & Phosphor Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
   <style>
     body {
-      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
       -webkit-tap-highlight-color: transparent;
     }
-    code, pre, .font-mono {
-      font-family: 'JetBrains Mono', monospace;
+    code, pre {
+      font-family: 'Fira Code', monospace;
     }
-    /* Custom Scrollbar */
-    ::-webkit-scrollbar {
-      width: 6px;
-      height: 6px;
-    }
-    ::-webkit-scrollbar-track {
-      background: #f1f5f9;
-    }
-    ::-webkit-scrollbar-thumb {
-      background: #cbd5e1;
-      border-radius: 9999px;
-    }
-    ::-webkit-scrollbar-thumb:hover {
-      background: #94a3b8;
-    }
-    /* iPad Air 5 optimization (820px x 1180px) */
-    @media (min-width: 768px) and (max-width: 1024px) {
-      .ipad-touch-target {
-        min-height: 48px;
-        padding-top: 0.65rem;
-        padding-bottom: 0.65rem;
-      }
-    }
-    /* Interactive Highlight & Underline Classes */
+
+    /* Custom Highlight Styles */
     .hl-yellow {
-      background-color: #fef08a;
-      padding: 0.1rem 0.35rem;
+      background: linear-gradient(120deg, rgba(254, 240, 138, 0.7) 0%, rgba(253, 224, 71, 0.7) 100%);
+      padding: 0.12rem 0.35rem;
       border-radius: 0.25rem;
       font-weight: 600;
-      color: #854d0e;
+    }
+    .hl-blue {
+      background: linear-gradient(120deg, rgba(186, 230, 253, 0.7) 0%, rgba(125, 211, 252, 0.7) 100%);
+      padding: 0.12rem 0.35rem;
+      border-radius: 0.25rem;
+      font-weight: 600;
     }
     .hl-emerald {
-      background-color: #d1fae5;
-      padding: 0.1rem 0.35rem;
+      background: linear-gradient(120deg, rgba(167, 243, 208, 0.7) 0%, rgba(110, 231, 183, 0.7) 100%);
+      padding: 0.12rem 0.35rem;
       border-radius: 0.25rem;
       font-weight: 600;
-      color: #065f46;
     }
-    .hl-sky {
-      background-color: #e0f2fe;
-      padding: 0.1rem 0.35rem;
+    .hl-rose {
+      background: linear-gradient(120deg, rgba(254, 205, 211, 0.7) 0%, rgba(253, 164, 175, 0.7) 100%);
+      padding: 0.12rem 0.35rem;
       border-radius: 0.25rem;
       font-weight: 600;
-      color: #0369a1;
     }
-    .rule-under {
-      text-decoration-line: underline;
-      text-decoration-thickness: 2.5px;
-      text-underline-offset: 3px;
+
+    /* Underline styles */
+    .rule-under-blue {
+      text-decoration: underline wavy #0284c7;
+      text-underline-offset: 4px;
     }
     .rule-under-amber {
-      text-decoration-color: #f59e0b;
-    }
-    .rule-under-blue {
-      text-decoration-color: #3b82f6;
+      text-decoration: underline wavy #d97706;
+      text-underline-offset: 4px;
     }
     .rule-under-rose {
-      text-decoration-color: #f43f5e;
+      text-decoration: underline wavy #e11d48;
+      text-underline-offset: 4px;
     }
-  </style>
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          colors: {
-            brand: {
-              50: '#eff6ff',
-              100: '#dbeafe',
-              500: '#3b82f6',
-              600: '#2563eb',
-              700: '#1d4ed8',
-              800: '#1e40af',
-              900: '#1e3a8a',
-            }
-          }
-        }
+
+    /* iPad Air 5 & Mobile touch improvements */
+    @media (max-width: 1024px) {
+      .touch-target {
+        min-height: 44px;
       }
     }
-  </script>
+  </style>
 </head>
-<body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col selection:bg-amber-200 selection:text-amber-900">
+<body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col">
 
-  <header class="sticky top-0 z-30 bg-white/95 backdrop-blur border-b border-slate-200 shadow-xs">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+  <!-- TOP APP BAR -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 px-4 lg:px-8 py-3 transition-all">
+    <div class="max-w-7xl mx-auto flex items-center justify-between gap-4">
       <div class="flex items-center gap-3">
-        <button id="mobileMenuBtn" class="lg:hidden p-2 rounded-lg text-slate-600 hover:bg-slate-100 focus:outline-hidden" aria-label="Toggle menu">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-600 to-sky-500 flex items-center justify-center text-white shadow-md shadow-indigo-100">
+          <i class="ph-bold ph-graduation-cap text-2xl"></i>
+        </div>
+        <div>
+          <h1 class="font-extrabold text-slate-900 text-lg leading-tight flex items-center gap-2">
+            IELTS GRAMMAR <span class="text-xs font-semibold px-2 py-0.5 rounded-full bg-indigo-50 text-indigo-700 border border-indigo-200">Ms Hoa</span>
+          </h1>
+          <p class="text-xs text-slate-500 font-medium hidden sm:block">Full Handbook Lesson 2 - 15 • Tương thích PC & iPad Air 5</p>
+        </div>
+      </div>
+
+      <!-- MAIN TABS: Lý Thuyết vs Luyện Tập -->
+      <nav class="flex items-center p-1 bg-slate-100 rounded-xl border border-slate-200 shadow-inner">
+        <button id="tab-theory-btn" onclick="switchMainTab('theory')" class="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-bold transition-all bg-white text-indigo-700 shadow-sm">
+          <i class="ph-bold ph-book-open-text text-lg"></i>
+          <span>Lý Thuyết Chi Tiết</span>
         </button>
-        <div class="flex items-center gap-2">
-          <span class="flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-600 text-white font-extrabold text-lg shadow-sm">
-            S+V
-          </span>
-          <div>
-            <h1 class="font-bold text-base sm:text-lg leading-tight text-slate-900">IELTS Grammar Lab</h1>
-            <p class="text-xs text-slate-500 font-medium hidden sm:block">Theo giáo trình IELTS Grammar - Ms Hoa</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Quick Search & Actions -->
-      <div class="flex items-center gap-2 sm:gap-4">
-        <div class="relative w-44 sm:w-64">
-          <input type="text" id="lessonSearch" placeholder="Tìm bài học, chủ đề..." class="w-full pl-8 pr-3 py-1.5 text-xs sm:text-sm bg-slate-100 focus:bg-white border border-transparent focus:border-blue-400 rounded-lg outline-hidden transition">
-          <svg class="w-4 h-4 text-slate-400 absolute left-2.5 top-1/2 -translate-y-1/2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
-        </div>
-
-        <!-- Total Progress Pill -->
-        <div class="hidden sm:flex items-center gap-2 bg-blue-50 border border-blue-200 text-blue-700 px-3 py-1 rounded-full text-xs font-semibold">
-          <span id="globalScoreBadge">0 bài hoàn thành</span>
-        </div>
-      </div>
+        <button id="tab-practice-btn" onclick="switchMainTab('practice')" class="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold transition-all text-slate-600 hover:text-slate-900">
+          <i class="ph-bold ph-pencil-line text-lg"></i>
+          <span>Luyện Tập & Đáp Án</span>
+        </button>
+      </nav>
     </div>
   </header>
 
-  <div class="flex-1 max-w-7xl w-full mx-auto flex overflow-hidden">
+  <!-- MAIN LAYOUT -->
+  <div class="flex-1 max-w-7xl w-full mx-auto p-4 lg:p-6 grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
     
-    <!-- Sidebar / Drawer (iPad & Desktop friendly) -->
-    <aside id="sidebar" class="fixed lg:static inset-y-0 left-0 z-40 w-72 lg:w-80 bg-white border-r border-slate-200 flex flex-col transition-transform transform -translate-x-full lg:translate-x-0 pt-16 lg:pt-0 shadow-lg lg:shadow-none">
-      <div class="p-4 border-b border-slate-100 flex items-center justify-between">
-        <span class="text-xs font-bold text-slate-400 tracking-wider uppercase">14 Bài Học Cốt Lõi</span>
-        <button id="closeSidebarBtn" class="lg:hidden text-slate-400 hover:text-slate-600 p-1">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
-        </button>
+    <!-- LESSON SIDEBAR NAVIGATION -->
+    <aside class="lg:col-span-3 bg-white rounded-2xl border border-slate-200 p-4 shadow-sm lg:sticky lg:top-20">
+      <div class="flex items-center justify-between mb-3 px-1">
+        <span class="text-xs font-bold uppercase tracking-wider text-slate-400">Danh Mục Bài Học</span>
+        <span class="text-xs font-semibold text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded-full">14 Bài Học</span>
       </div>
-      <div id="lessonListNav" class="flex-1 overflow-y-auto p-3 space-y-1">
-        <!-- Lessons rendered via JS -->
-      </div>
-      <div class="p-3 bg-slate-50 border-t border-slate-200 text-xs text-slate-500 text-center">
-        💡 Chạm vào câu để xem giải thích chi tiết
+      <div id="lesson-nav" class="space-y-1 max-h-[70vh] overflow-y-auto pr-1">
+        <!-- Injected via JS -->
       </div>
     </aside>
 
-    <!-- Overlay for mobile/tablet sidebar -->
-    <div id="sidebarOverlay" class="fixed inset-0 bg-slate-900/40 backdrop-blur-xs z-30 hidden lg:hidden"></div>
+    <!-- MAIN CONTENT VIEW AREA -->
+    <main class="lg:col-span-9 space-y-6">
 
-    <!-- Main Content Workspace -->
-    <main class="flex-1 flex flex-col overflow-y-auto bg-slate-50 p-4 sm:p-6 lg:p-8">
-      
-      <!-- Top Topic Header & Mode Switcher -->
-      <div class="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200/80 shadow-xs mb-6">
-        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
-          <div>
-            <div class="flex items-center gap-2 mb-1">
-              <span id="lessonTag" class="px-2.5 py-0.5 text-xs font-bold bg-amber-100 text-amber-800 rounded-md">Lesson 2</span>
-              <span id="lessonCategory" class="text-xs font-semibold text-slate-500">Từ Loại (Parts of Speech)</span>
+      <!-- ================= TAB 1: FULL GRAMMAR HANDBOOK ================= -->
+      <div id="view-theory" class="space-y-6">
+        <div class="bg-gradient-to-r from-indigo-700 via-indigo-600 to-sky-600 rounded-2xl p-6 text-white shadow-lg relative overflow-hidden">
+          <div class="relative z-10 max-w-2xl">
+            <span class="text-xs uppercase font-extrabold tracking-wider bg-white/20 px-2.5 py-1 rounded-full text-indigo-100">Ngữ pháp cốt lõi</span>
+            <h2 id="theory-title" class="text-2xl lg:text-3xl font-extrabold mt-3 mb-2">Lesson 2: Danh từ (Nouns)</h2>
+            <p id="theory-desc" class="text-indigo-100 text-sm leading-relaxed">
+              Trang bị đầy đủ hệ thống lý thuyết, phân biệt chi tiết, quy tắc ghi nhớ, công thức gạch chân và điểm nhấn màu sắc.
+            </p>
+          </div>
+          <i class="ph ph-bookmarks text-9xl absolute -right-6 -bottom-6 text-white/10 pointer-events-none"></i>
+        </div>
+
+        <!-- THE DYNAMIC CONTENT OF LESSON THEORY -->
+        <article id="theory-content" class="bg-white rounded-2xl border border-slate-200 p-6 lg:p-8 shadow-sm space-y-6">
+          <!-- Injected via JS based on selected Lesson -->
+        </article>
+      </div>
+
+      <!-- ================= TAB 2: INTERACTIVE PRACTICE ================= -->
+      <div id="view-practice" class="space-y-6 hidden">
+        <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
+          <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-4 border-b border-slate-100">
+            <div>
+              <span class="text-xs font-bold text-sky-600 uppercase tracking-wide bg-sky-50 px-2.5 py-1 rounded-full">Phần Thực Hành Tự Chấm</span>
+              <h2 id="practice-title" class="text-2xl font-bold text-slate-900 mt-2">Bài tập: Lesson 2</h2>
             </div>
-            <h2 id="lessonTitle" class="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight">Danh Từ (Countable & Uncountable Nouns)</h2>
+            <div class="flex items-center gap-2">
+              <button onclick="checkAnswers()" class="touch-target px-5 py-2.5 bg-emerald-600 hover:bg-emerald-700 active:scale-95 text-white font-bold rounded-xl shadow-md shadow-emerald-200 flex items-center gap-2 transition-all">
+                <i class="ph-bold ph-check-circle text-lg"></i>
+                <span>Chấm Điểm Nhanh</span>
+              </button>
+              <button onclick="toggleAllAnswers()" class="touch-target px-4 py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold rounded-xl flex items-center gap-2 transition-all">
+                <i class="ph-bold ph-lightbulb text-lg"></i>
+                <span id="btn-toggle-ans-text">Hiện Đáp Án & Giải Thích</span>
+              </button>
+            </div>
           </div>
 
-          <!-- Mode Toggle: Lý Thuyết vs Luyện Tập -->
-          <div class="inline-flex p-1 bg-slate-100 rounded-xl border border-slate-200 self-start md:self-center">
-            <button id="tabTheory" class="tab-btn px-4 py-2 text-xs sm:text-sm font-bold rounded-lg transition bg-white text-blue-600 shadow-xs">
-              📖 Bí Kíp & Công Thức
-            </button>
-            <button id="tabPractice" class="tab-btn px-4 py-2 text-xs sm:text-sm font-medium text-slate-600 rounded-lg hover:text-slate-900 transition">
-              ✍️ Luyện Tập & Bài Tập
-            </button>
+          <!-- DYNAMIC PRACTICE EXERCISES -->
+          <div id="practice-content" class="mt-6 space-y-8">
+            <!-- Injected via JS -->
           </div>
         </div>
-
-        <!-- Highlight & Highlight toggle hints -->
-        <div class="mt-4 pt-3 border-t border-slate-100 flex flex-wrap items-center justify-between gap-2 text-xs text-slate-600">
-          <div class="flex items-center gap-3">
-            <span class="inline-flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full bg-amber-400"></span> Điểm mấu chốt</span>
-            <span class="inline-flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full bg-sky-400"></span> Quy tắc ngữ pháp</span>
-            <span class="inline-flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full bg-rose-400"></span> Cảnh báo bẫy thi</span>
-          </div>
-          <button id="toggleHighlightTipsBtn" class="text-blue-600 font-semibold hover:underline">
-            Ẩn/Hiện Chú Giải Chi Tiết
-          </button>
-        </div>
-      </div>
-
-      <div id="theoryView" class="space-y-6">
-        <!-- Rendered by JS based on current active lesson -->
-      </div>
-
-      <div id="practiceView" class="space-y-6 hidden">
-        <!-- Rendered by JS based on current active lesson -->
       </div>
 
     </main>
   </div>
 
+  <!-- SCRIPT DATA & APP LOGIC -->
   <script>
-    const LESSONS_DATA = [
+    // ================= FULL CURRICULUM DATA (LESSON 2 - 15) =================
+    const lessonsData = [
       {
         id: 2,
-        title: "Danh từ (Nouns)",
-        subtitle: "Đếm được, không đếm được, Much/Many, Some/Any/A/An",
-        category: "Từ loại",
+        title: "Lesson 2: Danh từ (Nouns)",
+        subtitle: "Đếm được, không đếm được, danh từ 2 tính chất & Lượng từ (much/many, some/any)",
         theory: `
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <h3 class="text-xl font-bold text-slate-900 border-l-4 border-indigo-600 pl-3">1. Phân loại Danh từ cốt lõi</h3>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
             <div class="p-4 bg-emerald-50/70 border border-emerald-200 rounded-xl">
-              <h4 class="font-bold text-emerald-900 mb-2 flex items-center gap-2">
-                <span class="w-2 h-2 rounded-full bg-emerald-500"></span> Countable (Đếm được)
+              <h4 class="font-bold text-emerald-800 flex items-center gap-2 mb-2">
+                <i class="ph-bold ph-check text-lg"></i> Countable Nouns
               </h4>
-              <p class="text-xs text-slate-700 leading-relaxed mb-3">
-                Là những danh từ có thể đếm bằng số (1, 2, 3...) và có dạng số nhiều:
-              </p>
-              <div class="flex flex-wrap gap-1 text-xs">
-                <span class="hl-emerald">apple</span>
-                <span class="hl-emerald">chair</span>
-                <span class="hl-emerald">car</span>
-                <span class="hl-emerald">book</span>
-                <span class="hl-emerald">table</span>
-                <span class="hl-emerald">sandwich</span>
-                <span class="hl-emerald">bottle</span>
-                <span class="hl-emerald">idea</span>
+              <p class="text-xs text-slate-600 mb-2">Đếm được bằng số trực tiếp, có dạng số ít và số nhiều.</p>
+              <div class="text-xs font-medium space-y-1 text-slate-700">
+                <span class="inline-block hl-emerald">apple</span>, <span class="inline-block hl-emerald">chair</span>, 
+                <span class="inline-block hl-emerald">car</span>, <span class="inline-block hl-emerald">book</span>, 
+                <span class="inline-block hl-emerald">table</span>, <span class="inline-block hl-emerald">sandwich</span>, 
+                <span class="inline-block hl-emerald">idea</span>, <span class="inline-block hl-emerald">bottle</span>.
               </div>
             </div>
 
             <div class="p-4 bg-rose-50/70 border border-rose-200 rounded-xl">
-              <h4 class="font-bold text-rose-900 mb-2 flex items-center gap-2">
-                <span class="w-2 h-2 rounded-full bg-rose-500"></span> Uncountable (Không đếm được)
+              <h4 class="font-bold text-rose-800 flex items-center gap-2 mb-2">
+                <i class="ph-bold ph-x text-lg"></i> Uncountable Nouns
               </h4>
-              <p class="text-xs text-slate-700 leading-relaxed mb-3">
-                Không thể đếm trực tiếp bằng số, <u class="rule-under rule-under-rose font-semibold">luôn đi với động từ số ít</u>:
-              </p>
-              <div class="flex flex-wrap gap-1 text-xs">
-                <span class="px-2 py-0.5 bg-rose-100 text-rose-800 rounded">water</span>
-                <span class="px-2 py-0.5 bg-rose-100 text-rose-800 rounded">advice</span>
-                <span class="px-2 py-0.5 bg-rose-100 text-rose-800 rounded">information</span>
-                <span class="px-2 py-0.5 bg-rose-100 text-rose-800 rounded">bread</span>
-                <span class="px-2 py-0.5 bg-rose-100 text-rose-800 rounded">luggage</span>
-                <span class="px-2 py-0.5 bg-rose-100 text-rose-800 rounded">furniture</span>
-                <span class="px-2 py-0.5 bg-rose-100 text-rose-800 rounded">money</span>
-                <span class="px-2 py-0.5 bg-rose-100 text-rose-800 rounded">homework</span>
+              <p class="text-xs text-slate-600 mb-2">Không dùng với số đếm trực tiếp hoặc mạo từ a/an.</p>
+              <div class="text-xs font-medium space-y-1 text-slate-700">
+                <span class="inline-block hl-rose">water</span>, <span class="inline-block hl-rose">advice</span>, 
+                <span class="inline-block hl-rose">information</span>, <span class="inline-block hl-rose">bread</span>, 
+                <span class="inline-block hl-rose">luggage</span>, <span class="inline-block hl-rose">rice</span>, 
+                <span class="inline-block hl-rose">music</span>, <span class="inline-block hl-rose">money</span>, 
+                <span class="inline-block hl-rose">air</span>, <span class="inline-block hl-rose">furniture</span>, 
+                <span class="inline-block hl-rose">homework</span>.
               </div>
             </div>
 
             <div class="p-4 bg-amber-50/70 border border-amber-200 rounded-xl">
-              <h4 class="font-bold text-amber-900 mb-2 flex items-center gap-2">
-                <span class="w-2 h-2 rounded-full bg-amber-500"></span> Both (Vừa đếm vừa không)
+              <h4 class="font-bold text-amber-800 flex items-center gap-2 mb-2">
+                <i class="ph-bold ph-arrows-split text-lg"></i> Both (Cả hai trường hợp)
               </h4>
-              <p class="text-xs text-slate-700 leading-relaxed mb-2">Thay đổi ngữ nghĩa theo ngữ cảnh cụ thể:</p>
-              <ul class="text-xs space-y-1.5 text-slate-800">
-                <li>• <b>experience</b>: Kinh nghiệm (uncount) | Trải nghiệm cụ thể (count)</li>
-                <li>• <b>light</b>: Ánh sáng (uncount) | Chiếc đèn (count)</li>
-                <li>• <b>coffee</b>: Cà phê nói chung (uncount) | 1 tách cà phê (count)</li>
-                <li>• <b>business</b>: Việc kinh doanh (uncount) | Doanh nghiệp (count)</li>
-                <li>• <b>time</b>: Thời gian (uncount) | Số lần (count)</li>
+              <p class="text-xs text-slate-600 mb-2">Đổi nghĩa hoàn toàn tùy ngữ cảnh đếm được hay không.</p>
+              <div class="text-xs font-medium space-y-1 text-slate-700">
+                <span class="inline-block hl-yellow">experience</span>, <span class="inline-block hl-yellow">light</span>, 
+                <span class="inline-block hl-yellow">coffee</span>, <span class="inline-block hl-yellow">business</span>, 
+                <span class="inline-block hl-yellow">time</span>.
+              </div>
+            </div>
+          </div>
+
+          <h3 class="text-xl font-bold text-slate-900 border-l-4 border-indigo-600 pl-3 mt-8">2. 5 Danh từ đặc biệt mang 2 ngữ nghĩa (Trọng tâm đề thi)</h3>
+          <div class="space-y-3 mt-4 text-sm">
+            <div class="p-3.5 bg-slate-50 border border-slate-200 rounded-xl">
+              <strong class="text-indigo-700 font-bold">1. Experience:</strong>
+              <ul class="list-disc pl-5 mt-1 space-y-1 text-slate-700 text-xs">
+                <li><span class="rule-under-amber font-semibold">Không đếm được:</span> Kinh nghiệm tích luỹ nói chung <em>(She has a lot of experience in marketing).</em></li>
+                <li><span class="rule-under-blue font-semibold">Đếm được:</span> Một trải nghiệm cụ thể <em>(It was a strange experience).</em></li>
+              </ul>
+            </div>
+            <div class="p-3.5 bg-slate-50 border border-slate-200 rounded-xl">
+              <strong class="text-indigo-700 font-bold">2. Light:</strong>
+              <ul class="list-disc pl-5 mt-1 space-y-1 text-slate-700 text-xs">
+                <li><span class="rule-under-amber font-semibold">Không đếm được:</span> Luồng ánh sáng <em>(There's not enough light in this room).</em></li>
+                <li><span class="rule-under-blue font-semibold">Đếm được:</span> Chiếc đèn <em>(Turn off the lights before you leave).</em></li>
+              </ul>
+            </div>
+            <div class="p-3.5 bg-slate-50 border border-slate-200 rounded-xl">
+              <strong class="text-indigo-700 font-bold">3. Coffee / Tea:</strong>
+              <ul class="list-disc pl-5 mt-1 space-y-1 text-slate-700 text-xs">
+                <li><span class="rule-under-amber font-semibold">Không đếm được:</span> Cà phê dạng chất lỏng <em>(Would you like some coffee?).</em></li>
+                <li><span class="rule-under-blue font-semibold">Đếm được:</span> Đơn vị cốc/ly cà phê khi gọi món <em>(We ordered two coffees).</em></li>
+              </ul>
+            </div>
+            <div class="p-3.5 bg-slate-50 border border-slate-200 rounded-xl">
+              <strong class="text-indigo-700 font-bold">4. Business:</strong>
+              <ul class="list-disc pl-5 mt-1 space-y-1 text-slate-700 text-xs">
+                <li><span class="rule-under-amber font-semibold">Không đếm được:</span> Hoạt động kinh doanh tổng quát <em>(He is in the real estate business).</em></li>
+                <li><span class="rule-under-blue font-semibold">Đếm được:</span> Một cơ sở kinh doanh, doanh nghiệp cụ thể <em>(She owns three businesses).</em></li>
+              </ul>
+            </div>
+            <div class="p-3.5 bg-slate-50 border border-slate-200 rounded-xl">
+              <strong class="text-indigo-700 font-bold">5. Time:</strong>
+              <ul class="list-disc pl-5 mt-1 space-y-1 text-slate-700 text-xs">
+                <li><span class="rule-under-amber font-semibold">Không đếm được:</span> Khái niệm thời gian <em>(Time flies when you're having fun).</em></li>
+                <li><span class="rule-under-blue font-semibold">Đếm được:</span> Số lần thực hiện <em>(We've visited London three times).</em></li>
               </ul>
             </div>
           </div>
 
-          <div class="mt-4 p-4 bg-white border border-slate-200 rounded-xl shadow-xs">
-            <h4 class="font-bold text-slate-900 text-sm mb-3">📌 Quy tắc cốt lõi: Much vs Many & Some vs Any vs A/An</h4>
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 text-xs">
-              <div class="p-3 bg-slate-50 rounded-lg border border-slate-200">
-                <b class="text-blue-700 block mb-1">MUCH</b>
-                Dùng với <u class="rule-under rule-under-blue">danh từ không đếm được</u> trong câu phủ định & nghi vấn.<br>
-                <i>Ví dụ: We don't have <span class="hl-yellow">much time</span>.</i>
-              </div>
-              <div class="p-3 bg-slate-50 rounded-lg border border-slate-200">
-                <b class="text-blue-700 block mb-1">MANY</b>
-                Dùng với <u class="rule-under rule-under-blue">danh từ đếm được số nhiều</u>.<br>
-                <i>Ví dụ: How <span class="hl-yellow">many people</span> are there?</i>
-              </div>
-              <div class="p-3 bg-slate-50 rounded-lg border border-slate-200">
-                <b class="text-blue-700 block mb-1">SOME / ANY / A / AN</b>
-                • <b>SOME</b>: Câu khẳng định, lời mời lịch sự.<br>
-                • <b>ANY</b>: Câu phủ định & câu hỏi.<br>
-                • <b>A / AN</b>: Danh từ đếm được số ít (A trước phụ âm, An trước nguyên âm).
-              </div>
-            </div>
+          <h3 class="text-xl font-bold text-slate-900 border-l-4 border-indigo-600 pl-3 mt-8">3. Quy tắc Lượng từ (Quantifiers)</h3>
+          <div class="overflow-x-auto mt-4">
+            <table class="w-full text-left text-xs border border-slate-200 rounded-xl overflow-hidden">
+              <thead class="bg-slate-100 text-slate-700 font-bold border-b border-slate-200">
+                <tr>
+                  <th class="p-3">Từ định lượng</th>
+                  <th class="p-3">Loại danh từ đi kèm</th>
+                  <th class="p-3">Kiểu câu & Ý nghĩa</th>
+                  <th class="p-3">Ví dụ minh họa</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-100 text-slate-700">
+                <tr>
+                  <td class="p-3 font-bold text-indigo-700">MUCH</td>
+                  <td class="p-3"><span class="hl-rose">Không đếm được</span></td>
+                  <td class="p-3">Thường dùng trong câu Phủ định / Nghi vấn</td>
+                  <td class="p-3"><em>We don't have much time.</em></td>
+                </tr>
+                <tr>
+                  <td class="p-3 font-bold text-indigo-700">MANY</td>
+                  <td class="p-3"><span class="hl-emerald">Đếm được số nhiều</span></td>
+                  <td class="p-3">Khẳng định, Phủ định, Nghi vấn</td>
+                  <td class="p-3"><em>There are not many shops in my town.</em></td>
+                </tr>
+                <tr>
+                  <td class="p-3 font-bold text-indigo-700">SOME</td>
+                  <td class="p-3">Cả hai loại (số nhiều hoặc không đếm được)</td>
+                  <td class="p-3">Khẳng định, lời mời lịch sự, lời xin xỏ</td>
+                  <td class="p-3"><em>There is some orange juice. / Can you lend me some?</em></td>
+                </tr>
+                <tr>
+                  <td class="p-3 font-bold text-indigo-700">ANY</td>
+                  <td class="p-3">Cả hai loại</td>
+                  <td class="p-3">Phủ định và Câu hỏi nghi vấn thông thường</td>
+                  <td class="p-3"><em>I don't have any close friends. / Do you have any money?</em></td>
+                </tr>
+                <tr>
+                  <td class="p-3 font-bold text-indigo-700">A / AN</td>
+                  <td class="p-3"><span class="hl-blue">Đếm được số ít</span></td>
+                  <td class="p-3">Được nhắc đến lần đầu, giới thiệu nghề nghiệp</td>
+                  <td class="p-3"><em>My father is an engineer and my mother is a doctor.</em></td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         `,
-        exercises: [
+        practiceQuestions: [
           {
-            type: "sort",
-            title: "Bài 1. Phân loại danh từ vào 3 nhóm",
-            instruction: "Bấm vào từ vựng để chuyển sang cột thích hợp (Countable / Uncountable / Both):",
-            items: [
-              { word: "apple", cat: "count" },
-              { word: "water", cat: "uncount" },
-              { word: "experience", cat: "both" },
-              { word: "chair", cat: "count" },
-              { word: "advice", cat: "uncount" },
-              { word: "light", cat: "both" },
-              { word: "information", cat: "uncount" },
-              { word: "car", cat: "count" },
-              { word: "coffee", cat: "both" },
-              { word: "luggage", cat: "uncount" },
-              { word: "business", cat: "both" },
-              { word: "time", cat: "both" },
-              { word: "furniture", cat: "uncount" },
-              { word: "homework", cat: "uncount" }
-            ]
+            q: "1. (shop, town) Không có nhiều cửa hàng trong thị trấn của tôi.",
+            hint: "Dùng There are not many... / town",
+            key: "There are not many shops in my town.",
+            explanation: "shops là danh từ đếm được số nhiều nên dùng 'many'."
           },
           {
-            type: "fill",
-            title: "Bài 2: Điền Much hoặc Many",
-            instruction: "Điền 'much' hoặc 'many' vào chỗ trống thích hợp:",
-            questions: [
-              { q: "1. There are not _____ shops in my town.", a: "many", exp: "shops là danh từ đếm được số nhiều." },
-              { q: "2. We don't have _____ time.", a: "much", exp: "time (thời gian) là danh từ không đếm được." },
-              { q: "3. How _____ people are there in your family?", a: "many", exp: "people là danh từ số nhiều của person." },
-              { q: "4. How _____ sugar do you want in your coffee?", a: "much", exp: "sugar (đường) là danh từ không đếm được." },
-              { q: "5. How _____ stars are there in the night sky?", a: "many", exp: "stars là danh từ đếm được số nhiều." },
-              { q: "6. I don't know _____ about her.", a: "much", exp: "know much (biết nhiều) bổ trợ cho hành động/thông tin." }
-            ]
+            q: "2. (time) Chúng ta không có nhiều thời gian.",
+            hint: "We don't have...",
+            key: "We don't have much time.",
+            explanation: "time (thời gian) là danh từ không đếm được nên dùng 'much'."
           },
           {
-            type: "fill",
-            title: "Bài 3. Hoàn thành với some, any hoặc a/an",
-            instruction: "Chọn hoặc nhập 'some', 'any', 'a', hoặc 'an':",
-            questions: [
-              { q: "1. I don't have _____ close friends.", a: "any", exp: "Câu phủ định dùng 'any'." },
-              { q: "2. _____ people believe that money is everything.", a: "Some", exp: "Câu khẳng định dùng 'Some'." },
-              { q: "3. My father is _____ engineer, and my mother is a doctor.", a: "an", exp: "engineer bắt đầu bằng nguyên âm 'e' nên dùng 'an'." },
-              { q: "4. Do you have _____ money? Can you lend me some?", a: "any", exp: "Câu hỏi thông thường dùng 'any', vế sau là lời yêu cầu mượn dùng 'some'." },
-              { q: "5. There is _____ orange juice in the fridge.", a: "some", exp: "orange juice là danh từ không đếm được trong câu khẳng định → dùng 'some'." }
-            ]
+            q: "3. (family) Có bao nhiêu người trong gia đình bạn?",
+            hint: "How many people are there...",
+            key: "How many people are there in your family?",
+            explanation: "people là danh từ đếm được số nhiều -> 'How many'."
+          },
+          {
+            q: "4. (close friends) Tôi không có người bạn thân nào cả.",
+            hint: "Dùng some/any",
+            key: "I don't have any close friends.",
+            explanation: "Câu phủ định dùng 'any'."
+          },
+          {
+            q: "5. (orange juice) Trong tủ lạnh có một ít nước cam.",
+            hint: "There is...",
+            key: "There is some orange juice in the fridge.",
+            explanation: "orange juice không đếm được, câu khẳng định dùng 'some'."
           }
         ]
       },
       {
         id: 3,
-        title: "Động từ (Verbs)",
-        subtitle: "To-V, V-ing, Bare Inf & Các động từ đổi nghĩa (Stop, Remember...)",
-        category: "Từ loại",
+        title: "Lesson 3: Động từ (Verbs)",
+        subtitle: "To-V, V-ing, Bare-Infinitives (help, see, let) & Bảng động từ bất quy tắc V1 - V2 - V3",
         theory: `
-          <div class="space-y-4 text-xs sm:text-sm">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div class="p-4 bg-sky-50 border border-sky-200 rounded-xl">
-                <h4 class="font-bold text-sky-900 mb-2">🎯 Động từ đi với TO-V</h4>
-                <p class="text-xs text-slate-600 mb-2">Thường mang ý định, hướng tới tương lai hoặc nỗ lực:</p>
-                <div class="flex flex-wrap gap-1 text-xs">
-                  <span class="hl-sky">manage to V</span>
-                  <span class="hl-sky">hope to V</span>
-                  <span class="hl-sky">expect to V</span>
-                  <span class="hl-sky">decide to V</span>
-                  <span class="hl-sky">promise to V</span>
-                  <span class="hl-sky">refuse to V</span>
-                </div>
+          <h3 class="text-xl font-bold text-slate-900 border-l-4 border-indigo-600 pl-3">1. Phân biệt To-V và V-ing theo ngữ nghĩa</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4 text-xs">
+            <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-3">
+              <h4 class="font-bold text-indigo-700 text-sm">Nhóm động từ biến đổi theo hành vi:</h4>
+              <div>
+                <p class="font-bold text-slate-800">remember / forget:</p>
+                <p>• <span class="rule-under-blue">+ To V:</span> Nhớ / Quên <mark class="hl-blue">phải làm</mark> gì (hướng tới tương lai).</p>
+                <p>• <span class="rule-under-amber">+ V-ing:</span> Nhớ / Quên <mark class="hl-yellow">đã làm</mark> gì trong quá khứ.</p>
               </div>
-
-              <div class="p-4 bg-amber-50 border border-amber-200 rounded-xl">
-                <h4 class="font-bold text-amber-900 mb-2">💡 Động từ đi với V-ING</h4>
-                <p class="text-xs text-slate-600 mb-2">Thường diễn tả sở thích, thói quen hoặc hành động đang/đã trải qua:</p>
-                <div class="flex flex-wrap gap-1 text-xs">
-                  <span class="hl-yellow">enjoy V-ing</span>
-                  <span class="hl-yellow">miss V-ing</span>
-                  <span class="hl-yellow">imagine V-ing</span>
-                  <span class="hl-yellow">avoid V-ing</span>
-                  <span class="hl-yellow">admit V-ing</span>
-                </div>
+              <div>
+                <p class="font-bold text-slate-800">stop:</p>
+                <p>• <span class="rule-under-blue">+ To V:</span> Dừng việc hiện tại lại <mark class="hl-blue">để làm</mark> việc khác.</p>
+                <p>• <span class="rule-under-amber">+ V-ing:</span> <mark class="hl-yellow">Ngừng hẳn</mark> hành động đang diễn ra.</p>
+              </div>
+              <div>
+                <p class="font-bold text-slate-800">try:</p>
+                <p>• <span class="rule-under-blue">+ To V:</span> <mark class="hl-blue">Cố gắng, nỗ lực</mark> hết sức vượt khó khăn.</p>
+                <p>• <span class="rule-under-amber">+ V-ing:</span> <mark class="hl-yellow">Thử nghiệm</mark> một phương pháp mới.</p>
               </div>
             </div>
 
-            <!-- Nuances Box -->
-            <div class="p-4 bg-white border border-slate-200 rounded-xl">
-              <h4 class="font-bold text-slate-900 text-sm mb-3">🔥 Các cặp động từ đặc biệt DỄ GÂY NHẦM LẪN (Must Learn)</h4>
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
-                <div class="p-2.5 bg-slate-50 rounded-lg">
-                  <b class="text-blue-700">REMEMBER / FORGET</b>
-                  <p>• <u class="rule-under rule-under-amber">+ To-V</u>: Nhớ/Quên <b>phải làm việc gì</b> (chưa làm).<br>
-                  • <u class="rule-under rule-under-blue">+ V-ing</u>: Nhớ/Quên <b>đã làm việc gì rồi</b> (ký ức quá khứ).</p>
-                </div>
-                <div class="p-2.5 bg-slate-50 rounded-lg">
-                  <b class="text-blue-700">STOP</b>
-                  <p>• <u class="rule-under rule-under-amber">+ To-V</u>: Dừng lại <b>để làm một việc khác</b>.<br>
-                  • <u class="rule-under rule-under-blue">+ V-ing</u>: Dừng hẳn <b>hành động đang làm</b>.</p>
-                </div>
-                <div class="p-2.5 bg-slate-50 rounded-lg">
-                  <b class="text-blue-700">TRY</b>
-                  <p>• <u class="rule-under rule-under-amber">+ To-V</u>: Cố gắng hết sức làm việc gì đó.<br>
-                  • <u class="rule-under rule-under-blue">+ V-ing</u>: Thử nghiệm làm việc gì đó.</p>
-                </div>
-                <div class="p-2.5 bg-slate-50 rounded-lg">
-                  <b class="text-blue-700">SEE / WATCH SOMEONE</b>
-                  <p>• <u class="rule-under rule-under-amber">+ V (nguyên mẫu)</u>: Thấy toàn bộ hành động từ đầu đến cuối.<br>
-                  • <u class="rule-under rule-under-blue">+ V-ing</u>: Thấy hành động đang diễn ra hoặc thói quen thường xuyên.</p>
-                </div>
+            <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-3">
+              <h4 class="font-bold text-indigo-700 text-sm">Cấu trúc Giác quan & Ngoại động từ đặc biệt:</h4>
+              <div>
+                <p class="font-bold text-slate-800">see / watch / hear + O:</p>
+                <p>• <span class="rule-under-blue">+ V (nguyên mẫu):</span> Chứng kiến <mark class="hl-blue">toàn bộ</mark> hành động từ đầu đến cuối.</p>
+                <p>• <span class="rule-under-amber">+ V-ing:</span> Chứng kiến một phần hành động <mark class="hl-yellow">đang diễn ra</mark> hoặc thói quen thường nhật.</p>
+              </div>
+              <div>
+                <p class="font-bold text-slate-800">help + O:</p>
+                <p>• Có thể dùng <span class="hl-emerald">help + (to) V</span> hoặc <span class="hl-emerald">help + V (bare)</span>. Trong giao tiếp thực tế và văn viết hiện đại, dạng nguyên mẫu không 'to' phổ biến hơn.</p>
+              </div>
+              <div>
+                <p class="font-bold text-slate-800">let / make + O + V (nguyên mẫu):</p>
+                <p>• <em>She lets me choose what we watch.</em></p>
               </div>
             </div>
           </div>
+
+          <h3 class="text-xl font-bold text-slate-900 border-l-4 border-indigo-600 pl-3 mt-8">2. Bảng 20 Động từ Bất Quy Tắc Cốt Lõi (Irregular Verbs)</h3>
+          <div class="overflow-x-auto mt-4">
+            <table class="w-full text-center text-xs border border-slate-200 rounded-xl overflow-hidden">
+              <thead class="bg-indigo-50 text-indigo-900 font-bold border-b border-indigo-100">
+                <tr>
+                  <th class="p-2.5">V1 (Bare)</th>
+                  <th class="p-2.5">V2 (Past Simple)</th>
+                  <th class="p-2.5">V3 (Past Participle)</th>
+                  <th class="p-2.5">V1 (Bare)</th>
+                  <th class="p-2.5">V2 (Past Simple)</th>
+                  <th class="p-2.5">V3 (Past Participle)</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-100 text-slate-700">
+                <tr><td class="p-2 font-semibold">go</td><td class="p-2 hl-blue">went</td><td class="p-2 hl-emerald">gone</td><td class="p-2 font-semibold">know</td><td class="p-2 hl-blue">knew</td><td class="p-2 hl-emerald">known</td></tr>
+                <tr><td class="p-2 font-semibold">eat</td><td class="p-2 hl-blue">ate</td><td class="p-2 hl-emerald">eaten</td><td class="p-2 font-semibold">drink</td><td class="p-2 hl-blue">drank</td><td class="p-2 hl-emerald">drunk</td></tr>
+                <tr><td class="p-2 font-semibold">take</td><td class="p-2 hl-blue">took</td><td class="p-2 hl-emerald">taken</td><td class="p-2 font-semibold">drive</td><td class="p-2 hl-blue">drove</td><td class="p-2 hl-emerald">driven</td></tr>
+                <tr><td class="p-2 font-semibold">write</td><td class="p-2 hl-blue">wrote</td><td class="p-2 hl-emerald">written</td><td class="p-2 font-semibold">feel</td><td class="p-2 hl-blue">felt</td><td class="p-2 hl-emerald">felt</td></tr>
+                <tr><td class="p-2 font-semibold">see</td><td class="p-2 hl-blue">saw</td><td class="p-2 hl-emerald">seen</td><td class="p-2 font-semibold">find</td><td class="p-2 hl-blue">found</td><td class="p-2 hl-emerald">found</td></tr>
+                <tr><td class="p-2 font-semibold">give</td><td class="p-2 hl-blue">gave</td><td class="p-2 hl-emerald">given</td><td class="p-2 font-semibold">become</td><td class="p-2 hl-blue">became</td><td class="p-2 hl-emerald">become</td></tr>
+                <tr><td class="p-2 font-semibold">speak</td><td class="p-2 hl-blue">spoke</td><td class="p-2 hl-emerald">spoken</td><td class="p-2 font-semibold">leave</td><td class="p-2 hl-blue">left</td><td class="p-2 hl-emerald">left</td></tr>
+                <tr><td class="p-2 font-semibold">come</td><td class="p-2 hl-blue">came</td><td class="p-2 hl-emerald">come</td><td class="p-2 font-semibold">meet</td><td class="p-2 hl-blue">met</td><td class="p-2 hl-emerald">met</td></tr>
+                <tr><td class="p-2 font-semibold">break</td><td class="p-2 hl-blue">broke</td><td class="p-2 hl-emerald">broken</td><td class="p-2 font-semibold">forget</td><td class="p-2 hl-blue">forgot</td><td class="p-2 hl-emerald">forgotten</td></tr>
+                <tr><td class="p-2 font-semibold">choose</td><td class="p-2 hl-blue">chose</td><td class="p-2 hl-emerald">chosen</td><td class="p-2 font-semibold">begin</td><td class="p-2 hl-blue">began</td><td class="p-2 hl-emerald">begun</td></tr>
+              </tbody>
+            </table>
+          </div>
         `,
-        exercises: [
+        practiceQuestions: [
           {
-            type: "fill",
-            title: "Bài 1 & 4. Luyện tập To-V và V-ing theo ngữ cảnh",
-            instruction: "Điền dạng đúng của động từ trong ngoặc (To V hoặc V-ing):",
-            questions: [
-              { q: "1. I usually wake up at 6:30 and try _____ (not hit) the snooze button.", a: "not to hit", exp: "try to do something: cố gắng làm gì (dạng phủ định: try not to do)." },
-              { q: "2. I always manage _____ (get) out of bed before 7.", a: "to get", exp: "manage + to V: xoay xở/thành công làm gì." },
-              { q: "3. After brushing my teeth, I enjoy _____ (drink) a hot cup of tea.", a: "drinking", exp: "enjoy + V-ing: thích làm gì." },
-              { q: "4. Before leaving the house, I always remember _____ (bring) my phone.", a: "to bring", exp: "remember to V: nhớ phải mang đồ (chưa xảy ra, là việc cần làm)." },
-              { q: "5. Halfway there, I stopped _____ (buy) a bottle of water because I was thirsty.", a: "to buy", exp: "stop to V: dừng hành động đang đi lại để mua nước." },
-              { q: "6. I even stopped _____ (check) my phone for distractions.", a: "checking", exp: "stop + V-ing: ngừng việc kiểm tra điện thoại." },
-              { q: "7. Honestly, I'll never forget _____ (feel) this tired in my life.", a: "feeling", exp: "forget + V-ing: quên đi một cảm giác/ký ức đã trải qua." },
-              { q: "8. Honestly, I can't imagine _____ (grow up) without her guidance.", a: "growing up", exp: "imagine + V-ing: tưởng tượng việc gì đó." }
-            ]
+            q: "1. I usually wake up and try (not hit) _____ the snooze button.",
+            hint: "try to V / try V-ing",
+            key: "not to hit",
+            explanation: "try + to-V: nỗ lực làm gì, phủ định là 'not to V'."
           },
           {
-            type: "fill",
-            title: "Bài 3. Bảng động từ bất quy tắc (V2 - V3)",
-            instruction: "Điền V2 và V3 cách nhau bởi dấu phẩy (Ví dụ: went, gone):",
-            questions: [
-              { q: "1. go → (V2, V3):", a: "went, gone", exp: "go - went - gone" },
-              { q: "2. eat → (V2, V3):", a: "ate, eaten", exp: "eat - ate - eaten" },
-              { q: "3. write → (V2, V3):", a: "wrote, written", exp: "write - wrote - written" },
-              { q: "4. break → (V2, V3):", a: "broke, broken", exp: "break - broke - broken" },
-              { q: "5. know → (V2, V3):", a: "knew, known", exp: "know - knew - known" },
-              { q: "6. leave → (V2, V3):", a: "left, left", exp: "leave - left - left" }
-            ]
+            q: "2. After brushing my teeth, I enjoy (drink) _____ a hot cup of tea.",
+            hint: "enjoy + ?",
+            key: "drinking",
+            explanation: "enjoy luôn đi với V-ing."
+          },
+          {
+            q: "3. Halfway there, I stopped (buy) _____ a bottle of water because I was thirsty.",
+            hint: "Dừng lại để làm gì",
+            key: "to buy",
+            explanation: "stop + to V: dừng hành động đang làm lại để thực hiện việc mua nước."
+          },
+          {
+            q: "4. Even when she's tired, she never stops (smile) _____.",
+            hint: "Ngừng hẳn hành động",
+            key: "smiling",
+            explanation: "stop + V-ing: dừng hẳn nụ cười (ở đây mang nghĩa không ngừng mỉm cười)."
           }
         ]
       },
       {
         id: 4,
-        title: "Tính từ (Adjectives)",
-        subtitle: "Đuôi -ed vs -ing & Biến đổi từ loại (Word Forms)",
-        category: "Từ loại",
+        title: "Lesson 4: Tính từ (Adjectives)",
+        subtitle: "Phân biệt đuôi -ED / -ING & Hậu tố tạo tính từ (-ful, -able, -ive, -ous, -ic)",
         theory: `
-          <div class="space-y-4">
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div class="p-4 bg-purple-50 border border-purple-200 rounded-xl">
-                <h4 class="font-bold text-purple-900 mb-2">⭐ Tính từ đuôi -ED</h4>
-                <p class="text-xs text-slate-700 leading-relaxed mb-2">
-                  Dùng để miêu tả <u class="rule-under rule-under-amber font-semibold">cảm xúc, cảm giác</u> của con người hoặc con vật khi bị tác động:
-                </p>
-                <div class="text-xs space-y-1">
-                  <div>• <b>embarrassed</b>: cảm thấy xấu hổ</div>
-                  <div>• <b>bored</b>: cảm thấy chán nản</div>
-                  <div>• <b>shocked</b>: cảm thấy sốc</div>
-                  <div>• <b>interested</b>: quan tâm, hào hứng</div>
-                </div>
-              </div>
-
-              <div class="p-4 bg-sky-50 border border-sky-200 rounded-xl">
-                <h4 class="font-bold text-sky-900 mb-2">⚡ Tính từ đuôi -ING</h4>
-                <p class="text-xs text-slate-700 leading-relaxed mb-2">
-                  Dùng để miêu tả <u class="rule-under rule-under-blue font-semibold">tính chất, đặc điểm</u> của sự vật, sự việc, hiện tượng (hoặc người tạo ra cảm xúc đó):
-                </p>
-                <div class="text-xs space-y-1">
-                  <div>• <b>embarrassing</b>: đáng xấu hổ</div>
-                  <div>• <b>boring</b>: tẻ nhạt, gây chán</div>
-                  <div>• <b>shocking</b>: gây sốc</div>
-                  <div>• <b>interesting</b>: thú vị, lôi cuốn</div>
-                </div>
-              </div>
+          <h3 class="text-xl font-bold text-slate-900 border-l-4 border-indigo-600 pl-3">1. Nguyên tắc vàng phân biệt tính từ đuôi -ED và -ING</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+            <div class="p-4 bg-sky-50 border border-sky-200 rounded-xl">
+              <h4 class="font-bold text-sky-900 text-sm mb-1">Tính từ đuôi -ED (Cảm xúc & Cảm giác)</h4>
+              <p class="text-xs text-slate-600 mb-2">Dùng để diễn tả <mark class="hl-blue">cảm xúc chủ quan</mark> của con người bị tác động bởi sự vật/hoàn cảnh.</p>
+              <ul class="text-xs space-y-1 text-slate-700">
+                <li>• <em>I felt really <span class="rule-under-blue font-bold">embarrassed</span> when I forgot her name.</em></li>
+                <li>• <em>We were <span class="rule-under-blue font-bold">amazed</span> by the view.</em></li>
+                <li>• <em>The children were <span class="rule-under-blue font-bold">frightened</span> by thunder.</em></li>
+              </ul>
             </div>
 
-            <div class="p-4 bg-white border border-slate-200 rounded-xl">
-              <h4 class="font-bold text-slate-900 text-sm mb-2">✨ Cấu trúc hay thi IELTS: The + Adj = Danh từ số nhiều</h4>
-              <p class="text-xs text-slate-600">
-                <i>The gap between <span class="hl-yellow">the rich</span> and <span class="hl-yellow">the poor</span> is widening.</i> (Khoảng cách giữa người giàu và người nghèo đang ngày càng gia tăng).
-              </p>
+            <div class="p-4 bg-amber-50 border border-amber-200 rounded-xl">
+              <h4 class="font-bold text-amber-900 text-sm mb-1">Tính từ đuôi -ING (Bản chất & Tính chất)</h4>
+              <p class="text-xs text-slate-600 mb-2">Dùng để mô tả <mark class="hl-yellow">bản chất khách quan</mark> của sự việc, hiện tượng hoặc con người gây ra cảm xúc đó.</p>
+              <ul class="text-xs space-y-1 text-slate-700">
+                <li>• <em>The lecture was so <span class="rule-under-amber font-bold">boring</span> that students fell asleep.</em></li>
+                <li>• <em>He is a <span class="rule-under-amber font-bold">confusing</span> speaker. (Lời nói gây rối)</em></li>
+                <li>• <em>This puzzle is really <span class="rule-under-amber font-bold">challenging</span>.</em></li>
+              </ul>
+            </div>
+          </div>
+
+          <h3 class="text-xl font-bold text-slate-900 border-l-4 border-indigo-600 pl-3 mt-8">2. Hậu tố cấu tạo tính từ từ danh từ/động từ</h3>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-4 text-xs">
+            <div class="p-3 bg-slate-50 border border-slate-200 rounded-lg">
+              <span class="font-bold text-indigo-700 block mb-1">-FUL / -LESS</span>
+              <span>care → <span class="hl-emerald">careful / careless</span></span><br>
+              <span>help → <span class="hl-emerald">helpful</span></span>
+            </div>
+            <div class="p-3 bg-slate-50 border border-slate-200 rounded-lg">
+              <span class="font-bold text-indigo-700 block mb-1">-OUS</span>
+              <span>danger → <span class="hl-emerald">dangerous</span></span><br>
+              <span>fame → <span class="hl-emerald">famous</span></span>
+            </div>
+            <div class="p-3 bg-slate-50 border border-slate-200 rounded-lg">
+              <span class="font-bold text-indigo-700 block mb-1">-ABLE / -IBLE</span>
+              <span>enjoy → <span class="hl-emerald">enjoyable</span></span><br>
+              <span>comfort → <span class="hl-emerald">comfortable</span></span>
+            </div>
+            <div class="p-3 bg-slate-50 border border-slate-200 rounded-lg">
+              <span class="font-bold text-indigo-700 block mb-1">-IVE / -Y</span>
+              <span>create → <span class="hl-emerald">creative</span></span><br>
+              <span>noise → <span class="hl-emerald">noisy</span></span>
             </div>
           </div>
         `,
-        exercises: [
+        practiceQuestions: [
           {
-            type: "choice",
-            title: "Bài 1. Chọn tính từ đúng (-ed hay -ing)",
-            instruction: "Chọn đáp án chính xác theo ngữ cảnh:",
-            questions: [
-              {
-                q: "1. I felt really _____ when I forgot her name.",
-                options: ["embarrassed", "embarrassing"],
-                a: "embarrassed",
-                exp: "Diễn tả cảm xúc của 'I' (cảm thấy xấu hổ) → dùng -ed."
-              },
-              {
-                q: "2. The lecture was so _____ that several students fell asleep.",
-                options: ["bored", "boring"],
-                a: "boring",
-                exp: "Mô tả tính chất của bài giảng (gây buồn ngủ) → dùng -ing."
-              },
-              {
-                q: "3. He is such a _____ speaker. I never understand his point.",
-                options: ["confused", "confusing"],
-                a: "confusing",
-                exp: "Mô tả đặc điểm của người nói (nói khó hiểu, gây rối rắm) → dùng -ing."
-              },
-              {
-                q: "4. The children were _____ by the thunderstorm.",
-                options: ["frightened", "frightening"],
-                a: "frightened",
-                exp: "Trẻ em cảm thấy sợ hãi trước bão tố → dùng -ed."
-              },
-              {
-                q: "5. This puzzle is really _____. Can you solve it?",
-                options: ["challenged", "challenging"],
-                a: "challenging",
-                exp: "Mô tả câu đố mang tính thử thách cao → dùng -ing."
-              }
-            ]
+            q: "1. The lecture was so (bored / boring) _____ that several students fell asleep.",
+            hint: "Tính chất bài giảng",
+            key: "boring",
+            explanation: "Mô tả tính chất của bài giảng gây buồn ngủ nên dùng đuôi -ING."
           },
           {
-            type: "fill",
-            title: "Bài 3. Đổi từ trong ngoặc sang tính từ",
-            instruction: "Nhập dạng tính từ tương ứng của từ trong ngoặc:",
-            questions: [
-              { q: "1. This restaurant is very _____ (fame) in our city.", a: "famous", exp: "fame → famous (nổi tiếng)." },
-              { q: "2. She gave me a _____ (help) answer to my question.", a: "helpful", exp: "help → helpful (hữu ích)." },
-              { q: "3. We had an _____ (enjoy) trip to Da Lat last month.", a: "enjoyable", exp: "enjoy → enjoyable (thú vị)." },
-              { q: "4. He's such a _____ (create) student.", a: "creative", exp: "create → creative (sáng tạo)." },
-              { q: "5. It's _____ (danger) to swim in that river.", a: "dangerous", exp: "danger → dangerous (nguy hiểm)." }
-            ]
+            q: "2. I was (shocked / shocking) _____ to hear about the accident.",
+            hint: "Cảm xúc của con người",
+            key: "shocked",
+            explanation: "Chủ ngữ 'I' cảm thấy sốc nên dùng tính từ đuôi -ED."
+          },
+          {
+            q: "3. Don't be so (care) _____! You almost dropped the baby!",
+            hint: "Đổi thành tính từ mang nghĩa bất cẩn",
+            key: "careless",
+            explanation: "careless = bất cẩn, không cẩn thận."
           }
         ]
       },
       {
         id: 5,
-        title: "Trạng từ (Adverbs)",
-        subtitle: "Vị trí trạng từ, tính từ bất quy tắc (hard, fast) & Sửa lỗi sai",
-        category: "Từ loại",
+        title: "Lesson 5: Trạng từ (Adverbs)",
+        subtitle: "Vị trí trạng từ, trạng từ bất quy tắc (hard/hardly, fast, well) & Động từ chỉ cảm giác",
         theory: `
-          <div class="space-y-4 text-xs sm:text-sm">
-            <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl">
-              <h4 class="font-bold text-slate-900 mb-2">📌 Vị trí & Chức năng trạng từ (Adverb of Manner)</h4>
-              <p class="text-xs text-slate-700 leading-relaxed mb-2">
-                Trạng từ thường bổ nghĩa cho <b>Động từ</b> (Verb), <b>Tính từ</b> (Adj) hoặc <b>Trạng từ khác</b> (Adv):<br>
-                Công thức thông thường: <span class="hl-yellow">Adj + ly = Adv</span> (quick → quickly, beautiful → beautifully).
-              </p>
-              <div class="p-3 bg-rose-50 border border-rose-200 rounded-lg text-rose-900 text-xs">
-                ⚠️ <b>LƯU Ý ĐẶC BIỆT (BẪY THI CỰC PHỔ BIẾN):</b>
-                <ul class="list-disc pl-4 mt-1 space-y-1">
-                  <li><b>fast</b>: Vừa là Adj vừa là Adv. <i>Không tồn tại chữ <del>fastly</del></i>.</li>
-                  <li><b>hard</b>: Làm việc chăm chỉ (work hard). Khác với <b>hardly</b> = hầu như không (I could hardly follow).</li>
-                  <li><b>good</b> (tính từ) → <b>well</b> (trạng từ).</li>
-                  <li>Sau động từ chỉ giác quan (smell, taste, feel, look, seem) dùng <b>Tính từ</b> (The cake smells <span class="hl-emerald">delicious</span>, NOT deliciously).</li>
-                </ul>
-              </div>
+          <h3 class="text-xl font-bold text-slate-900 border-l-4 border-indigo-600 pl-3">1. Trạng từ Bất Quy Tắc (Bẫy đề thi cực phổ biến)</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4 text-xs">
+            <div class="p-3.5 bg-rose-50 border border-rose-200 rounded-xl space-y-2">
+              <div class="font-bold text-rose-900 text-sm">Cặp từ HARD vs. HARDLY</div>
+              <p>• <span class="hl-yellow font-bold">hard (adv):</span> Chăm chỉ, vất vả, nặng nhọc <em>(He works hard every day).</em></p>
+              <p>• <span class="hl-rose font-bold">hardly (adv):</span> Hầu như không <em>(I could hardly follow what she was saying).</em></p>
+            </div>
+            <div class="p-3.5 bg-sky-50 border border-sky-200 rounded-xl space-y-2">
+              <div class="font-bold text-sky-900 text-sm">Các trường hợp đặc biệt khác</div>
+              <p>• <span class="hl-blue font-bold">fast:</span> Tính từ và trạng từ giữ nguyên là <strong>fast</strong> (TUYỆT ĐỐI không có 'fastly').</p>
+              <p>• <span class="hl-emerald font-bold">good → well:</span> Trạng từ của 'good' là <strong>well</strong> (ngoại trừ khi well là adj mang nghĩa khoẻ mạnh).</p>
             </div>
           </div>
+
+          <h3 class="text-xl font-bold text-slate-900 border-l-4 border-indigo-600 pl-3 mt-8">2. Động từ liên kết chỉ cảm giác (Linking verbs) + ADJECTIVE</h3>
+          <p class="text-xs text-slate-600 mt-2">Sau các động từ giác quan sau, ta đi với <span class="rule-under-amber font-bold">TÍNH TỪ</span> chứ KHÔNG đi với trạng từ:</p>
+          <div class="flex flex-wrap gap-2 mt-3 text-xs font-semibold">
+            <span class="px-3 py-1 bg-slate-100 border border-slate-300 rounded-lg">seem</span>
+            <span class="px-3 py-1 bg-slate-100 border border-slate-300 rounded-lg">smell</span>
+            <span class="px-3 py-1 bg-slate-100 border border-slate-300 rounded-lg">taste</span>
+            <span class="px-3 py-1 bg-slate-100 border border-slate-300 rounded-lg">feel</span>
+            <span class="px-3 py-1 bg-slate-100 border border-slate-300 rounded-lg">look</span>
+            <span class="px-3 py-1 bg-slate-100 border border-slate-300 rounded-lg">sound</span>
+          </div>
+          <p class="text-xs text-slate-600 mt-2">Ví dụ sai hay gặp: <em>The cake smells deliciously (SAI)</em> → <span class="text-emerald-700 font-bold">The cake smells delicious (ĐÚNG)</span>.</p>
         `,
-        exercises: [
+        practiceQuestions: [
           {
-            type: "choice",
-            title: "Bài 1. Phân biệt Tính từ vs Trạng từ",
-            instruction: "Chọn từ đúng trong ngoặc:",
-            questions: [
-              {
-                q: "1. On my first day, I tried to dress _____ (professional / professionally).",
-                options: ["professional", "professionally"],
-                a: "professionally",
-                exp: "Bổ nghĩa cho động từ 'dress' cần trạng từ 'professionally'."
-              },
-              {
-                q: "2. My manager seemed _____ (nice / nicely).",
-                options: ["nice", "nicely"],
-                a: "nice",
-                exp: "Sau linking verb 'seemed' cần tính từ 'nice'."
-              },
-              {
-                q: "3. She spoke really _____ (fast / fastly).",
-                options: ["fast", "fastly"],
-                a: "fast",
-                exp: "fast là trạng từ bất quy tắc, không có từ 'fastly'."
-              },
-              {
-                q: "4. I worked _____ (hard / hardly) and my confidence grew.",
-                options: ["hard", "hardly"],
-                a: "hard",
-                exp: "work hard = làm việc chăm chỉ. (hardly có nghĩa là 'hầu như không')."
-              },
-              {
-                q: "5. The cake smells _____ (delicious / deliciously).",
-                options: ["delicious", "deliciously"],
-                a: "delicious",
-                exp: "smell là động từ tri giác → đi kèm tính từ 'delicious'."
-              }
-            ]
+            q: "1. She spoke really (fast / fastly) _____, and I could (hard / hardly) _____ follow her.",
+            hint: "fast là bất quy tắc; hầu như không = hardly",
+            key: "fast, hardly",
+            explanation: "Không có từ fastly; hardly có nghĩa là hầu như không."
+          },
+          {
+            q: "2. The cake smells (delicious / deliciously) _____.",
+            hint: "smell là linking verb",
+            key: "delicious",
+            explanation: "Sau linking verb 'smell' dùng tính từ delicious."
           }
         ]
       },
       {
         id: 6,
-        title: "Giới từ (Prepositions)",
-        subtitle: "In, On, At thời gian & nơi chốn, Giới từ đi với Tính từ/Danh từ",
-        category: "Cấu trúc & Cụm từ",
+        title: "Lesson 6: Giới từ (Prepositions)",
+        subtitle: "Giới từ IN - ON - AT (thời gian & nơi chốn) & Cụm Giới Từ đi liền Tính Từ / Danh Từ",
         theory: `
-          <div class="space-y-4">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
-              <div class="p-3 bg-blue-50 border border-blue-200 rounded-xl">
-                <h4 class="font-bold text-blue-900 mb-1 text-sm">IN (Bao quát nhất)</h4>
-                <div class="text-xs text-slate-700 space-y-1">
-                  <div>• <b>Thời gian:</b> in 2024, in July, in summer, in the morning, in my twenties.</div>
-                  <div>• <b>Không gian:</b> in a village, in the park, in the kitchen.</div>
-                </div>
-              </div>
-
-              <div class="p-3 bg-amber-50 border border-amber-200 rounded-xl">
-                <h4 class="font-bold text-amber-900 mb-1 text-sm">ON (Trung bình / Bề mặt)</h4>
-                <div class="text-xs text-slate-700 space-y-1">
-                  <div>• <b>Thời gian:</b> on Monday, on a rainy afternoon, on the weekend.</div>
-                  <div>• <b>Phương tiện / truyền thông:</b> on TV, on the bus, on the corner.</div>
-                </div>
-              </div>
-
-              <div class="p-3 bg-emerald-50 border border-emerald-200 rounded-xl">
-                <h4 class="font-bold text-emerald-900 mb-1 text-sm">AT (Cụ thể / Điểm mốc)</h4>
-                <div class="text-xs text-slate-700 space-y-1">
-                  <div>• <b>Thời gian:</b> at 7 a.m., at noon, at midnight, at night.</div>
-                  <div>• <b>Địa điểm xác định:</b> at the bus stop, at the airport, at the hotel.</div>
-                </div>
-              </div>
+          <h3 class="text-xl font-bold text-slate-900 border-l-4 border-indigo-600 pl-3">1. Kim tự tháp Giới từ IN - ON - AT</h3>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4 text-xs">
+            <div class="p-4 bg-sky-50 border border-sky-200 rounded-xl">
+              <h4 class="font-bold text-sky-800 text-sm mb-2">IN (Tổng quát nhất / Không gian rộng)</h4>
+              <p><strong>Thời gian:</strong> Năm, mùa, tháng, thế kỷ, thập kỷ, các buổi trong ngày <em>(in 2020, in July, in the morning, in my twenties).</em></p>
+              <p class="mt-2"><strong>Địa điểm:</strong> Quốc gia, thành phố, không gian khép kín <em>(in Vietnam, in Hanoi, in the kitchen).</em></p>
             </div>
+            <div class="p-4 bg-amber-50 border border-amber-200 rounded-xl">
+              <h4 class="font-bold text-amber-800 text-sm mb-2">ON (Cụ thể hơn / Bề mặt & Đường xá)</h4>
+              <p><strong>Thời gian:</strong> Ngày trong tuần, ngày tháng năm cụ thể, buổi của một ngày cụ thể <em>(on Monday, on a rainy morning, on my birthday).</em></p>
+              <p class="mt-2"><strong>Địa điểm:</strong> Bề mặt, tên đường, phương tiện công cộng <em>(on the table, on TV, on the bus, on the corner).</em></p>
+            </div>
+            <div class="p-4 bg-rose-50 border border-rose-200 rounded-xl">
+              <h4 class="font-bold text-rose-800 text-sm mb-2">AT (Chính xác & Địa điểm điểm mốc)</h4>
+              <p><strong>Thời gian:</strong> Giờ giấc cụ thể, thời điểm cố định <em>(at 7 a.m., at noon, at midnight, at night).</em></p>
+              <p class="mt-2"><strong>Địa điểm:</strong> Địa chỉ cụ thể, trạm dừng, vị trí công cộng <em>(at the bus stop, at the airport, at school).</em></p>
+            </div>
+          </div>
 
-            <!-- Adjective / Noun + Prepositions Cheat Sheet -->
-            <div class="p-4 bg-white border border-slate-200 rounded-xl">
-              <h4 class="font-bold text-slate-900 text-sm mb-2">📚 Cụm Tính từ & Danh từ + Giới từ bắt buộc nhớ:</h4>
-              <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs">
-                <div class="p-2 bg-slate-50 rounded"><b>proud of</b> (tự hào)</div>
-                <div class="p-2 bg-slate-50 rounded"><b>good at</b> (giỏi về)</div>
-                <div class="p-2 bg-slate-50 rounded"><b>interested in</b> (thích thú)</div>
-                <div class="p-2 bg-slate-50 rounded"><b>responsible for</b> (chịu trách nhiệm)</div>
-                <div class="p-2 bg-slate-50 rounded"><b>solution to</b> (giải pháp cho)</div>
-                <div class="p-2 bg-slate-50 rounded"><b>key to</b> (chìa khóa tới)</div>
-                <div class="p-2 bg-slate-50 rounded"><b>spending on</b> (chi tiêu cho)</div>
-                <div class="p-2 bg-slate-50 rounded"><b>grateful to sb for sth</b></div>
-              </div>
+          <h3 class="text-xl font-bold text-slate-900 border-l-4 border-indigo-600 pl-3 mt-8">2. Cụm Tính từ & Danh từ + Giới từ cần thuộc lòng</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4 text-xs">
+            <div class="p-3 bg-slate-50 border border-slate-200 rounded-xl space-y-1">
+              <div class="font-bold text-indigo-700">Tính từ + Giới từ:</div>
+              <p>• <span class="font-semibold text-slate-800">proud of:</span> tự hào về</p>
+              <p>• <span class="font-semibold text-slate-800">good at / bad at:</span> giỏi / dở về</p>
+              <p>• <span class="font-semibold text-slate-800">interested in:</span> hứng thú với</p>
+              <p>• <span class="font-semibold text-slate-800">responsible for:</span> chịu trách nhiệm cho</p>
+              <p>• <span class="font-semibold text-slate-800">grateful to sb for sth:</span> biết ơn ai về điều gì</p>
+              <p>• <span class="font-semibold text-slate-800">careful with:</span> cẩn thận với</p>
+            </div>
+            <div class="p-3 bg-slate-50 border border-slate-200 rounded-xl space-y-1">
+              <div class="font-bold text-indigo-700">Danh từ + Giới từ:</div>
+              <p>• <span class="font-semibold text-slate-800">solution to:</span> giải pháp cho (chú ý dùng 'to')</p>
+              <p>• <span class="font-semibold text-slate-800">key to:</span> chìa khóa dẫn tới</p>
+              <p>• <span class="font-semibold text-slate-800">spending on:</span> chi tiêu vào</p>
+              <p>• <span class="font-semibold text-slate-800">increase/rise in:</span> sự gia tăng về</p>
+              <p>• <span class="font-semibold text-slate-800">reason for:</span> lý do cho</p>
+              <p>• <span class="font-semibold text-slate-800">lack of:</span> sự thiếu hụt</p>
             </div>
           </div>
         `,
-        exercises: [
+        practiceQuestions: [
           {
-            type: "fill",
-            title: "Bài 1 & 7. Điền giới từ thích hợp",
-            instruction: "Điền giới từ (in, on, at, of, to, for, about...):",
-            questions: [
-              { q: "1. The train arrives _____ 7 a.m.", a: "at", exp: "Giờ giấc chính xác dùng 'at'." },
-              { q: "2. I was born _____ June, _____ a small village.", a: "in, in", exp: "Tháng dùng 'in', làng quê dùng 'in'." },
-              { q: "3. We met _____ the bus stop _____ a rainy morning.", a: "at, on", exp: "Trạm dừng dùng 'at', buổi cụ thể có tính từ dùng 'on a rainy morning'." },
-              { q: "4. The government has increased its spending _____ education.", a: "on", exp: "spend / spending on something: chi tiêu vào cái gì." },
-              { q: "5. The key _____ success is consistency.", a: "to", exp: "the key to something: chìa khóa dẫn tới cái gì." },
-              { q: "6. She is very good _____ explaining complex ideas.", a: "at", exp: "good at + V-ing: giỏi về việc gì." }
-            ]
+            q: "1. The plane took off _____ 6 a.m. and landed in Japan _____ July.",
+            hint: "giờ dùng at, tháng dùng in",
+            key: "at, in",
+            explanation: "Giờ giấc cụ thể dùng 'at 6 a.m.', tháng dùng 'in July'."
+          },
+          {
+            q: "2. The key _____ success is consistency.",
+            hint: "key đi với giới từ gì",
+            key: "to",
+            explanation: "Cụm danh từ cố định: the key to something."
+          },
+          {
+            q: "3. She is very good _____ solving problems.",
+            hint: "good đi với giới từ gì",
+            key: "at",
+            explanation: "be good at + V-ing: giỏi về kỹ năng gì."
           }
         ]
       },
       {
         id: 7,
-        title: "Mạo từ (Articles)",
-        subtitle: "A / An / The & Zero Article (Ø)",
-        category: "Cấu trúc & Cụm từ",
+        title: "Lesson 7: Mạo từ (Articles: A / An / The / Ø)",
+        subtitle: "Quy tắc xác định / chưa xác định, hiện tượng duy nhất, bữa ăn, nhạc cụ & phương tiện",
         theory: `
-          <div class="space-y-4 text-xs sm:text-sm">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
-              <div class="p-3 bg-sky-50 border border-sky-200 rounded-xl">
-                <b class="text-sky-900 block mb-1">A / AN (Không xác định)</b>
-                • Dùng cho danh từ đếm được số ít khi được nhắc đến lần đầu.<br>
-                • <b>A</b> trước phụ âm (a book, a university).<br>
-                • <b>AN</b> trước nguyên âm (an apple, an hour).
-              </div>
-              <div class="p-3 bg-amber-50 border border-amber-200 rounded-xl">
-                <b class="text-amber-900 block mb-1">THE (Đã xác định)</b>
-                • Người nói và người nghe đều biết rõ đối tượng nào.<br>
-                • Đã được nhắc tới từ trước.<br>
-                • Duy nhất: the sun, the world.<br>
-                • So sánh nhất: the most beautiful.
-              </div>
-              <div class="p-3 bg-slate-100 border border-slate-200 rounded-xl">
-                <b class="text-slate-800 block mb-1">Ø (Zero Article)</b>
-                • Bữa ăn thông thường: for breakfast.<br>
-                • Phương tiện với by: by train, by bus.<br>
-                • Đến nơi đúng mục đích: go to bed, at school, in hospital.
-              </div>
+          <h3 class="text-xl font-bold text-slate-900 border-l-4 border-indigo-600 pl-3">1. Nguyên tắc sử dụng Mạo Từ cốt lõi</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4 text-xs">
+            <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2">
+              <span class="font-bold text-indigo-700 text-sm">A / AN (Bất định)</span>
+              <p>• Dùng trước danh từ đếm được số ít khi được nhắc đến lần đầu tiên.</p>
+              <p>• <span class="hl-blue">AN</span> đứng trước từ có <mark class="hl-yellow">phiên âm nguyên âm</mark> (u, e, o, a, i): <em>an hour</em> (âm h câm), <em>an engineer</em>.</p>
+              <p>• Chú ý: <em>a university</em> (bắt đầu bằng bán âm /ju:/ nên dùng 'a').</p>
+            </div>
+            <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2">
+              <span class="font-bold text-indigo-700 text-sm">THE (Xác định)</span>
+              <p>• Đã được nhắc trước đó trong ngữ cảnh hoặc cả 2 người cùng ngầm hiểu.</p>
+              <p>• Vật thể duy nhất: <em>the sun, the moon, the world, the sunrise</em>.</p>
+              <p>• So sánh nhất: <em>the most beautiful, the highest</em>.</p>
+              <p>• Nhạc cụ: <em>play the guitar, play the piano</em>.</p>
             </div>
           </div>
+
+          <h3 class="text-xl font-bold text-slate-900 border-l-4 border-indigo-600 pl-3 mt-8">2. Khi nào dùng ZERO ARTICLE (Ø - Không mạo từ)?</h3>
+          <ul class="list-disc pl-5 mt-3 space-y-1.5 text-xs text-slate-700">
+            <li><span class="rule-under-amber font-semibold">Bữa ăn thông thường:</span> <em>have Ø breakfast, for Ø lunch, at Ø dinner</em>.</li>
+            <li><span class="rule-under-blue font-semibold">Phương tiện đi lại với 'by':</span> <em>travel by Ø train, by Ø bus, by Ø car</em>.</li>
+            <li><span class="rule-under-rose font-semibold">Địa điểm vì mục đích chính (học tập/điều trị/ngủ):</span> <em>go to Ø bed (đi ngủ), go to Ø school (đi học), be in Ø hospital (nằm viện điều trị)</em>.</li>
+          </ul>
         `,
-        exercises: [
+        practiceQuestions: [
           {
-            type: "fill",
-            title: "Bài 3. Điền mạo từ thích hợp (a, an, the, Ø)",
-            instruction: "Nhập 'a', 'an', 'the' hoặc gõ '0' (hoặc Ø) nếu không dùng mạo từ:",
-            questions: [
-              { q: "1. He usually goes to _____ bed at 10 p.m.", a: "Ø", exp: "go to bed (đi ngủ theo mục đích chính) không dùng mạo từ." },
-              { q: "2. Can you play _____ guitar?", a: "the", exp: "Nhạc cụ khi chơi luôn dùng 'the' (play the guitar)." },
-              { q: "3. There is _____ university near my house.", a: "a", exp: "university bắt đầu bằng phát âm /ju:/ (phụ âm) nên dùng 'a'." },
-              { q: "4. This is _____ most beautiful painting I've ever seen.", a: "the", exp: "So sánh nhất 'the most' luôn dùng 'the'." },
-              { q: "5. He's studying to become _____ engineer.", a: "an", exp: "Nghề nghiệp số ít bắt đầu bằng nguyên âm 'e' dùng 'an'." }
-            ]
+            q: "1. Can you play _____ guitar? I don't eat much for _____ breakfast.",
+            hint: "nhạc cụ dùng the; bữa ăn không dùng mạo từ",
+            key: "the, Ø",
+            explanation: "Nhạc cụ luôn có 'the', tên bữa ăn thông thường dùng zero article (Ø)."
+          },
+          {
+            q: "2. He's studying to become _____ engineer at _____ university near my house.",
+            hint: "engineer bắt đầu nguyên âm; university bắt đầu âm /ju:/",
+            key: "an, a",
+            explanation: "an engineer (nguyên âm /e/), a university (phụ âm /j/)."
           }
         ]
       },
       {
         id: 8,
-        title: "12 Thì Trong Tiếng Anh (Tenses)",
-        subtitle: "Hiện tại, Quá khứ, Tương lai & Dấu hiệu thời gian",
-        category: "Thời & Thì (Tenses)",
+        title: "Lesson 8: 12 Thì trong tiếng Anh (12 Verb Tenses)",
+        subtitle: "Công thức tổng quát, sơ đồ trục thời gian & dấu hiệu nhận biết từng thì",
         theory: `
-          <div class="space-y-4">
-            <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl">
-              <h4 class="font-bold text-slate-900 text-sm mb-3">🕒 Trục Thời Gian Cốt Lõi (Timeline)</h4>
-              <div class="space-y-3 text-xs">
-                <div class="p-2.5 bg-blue-50 rounded-lg border border-blue-200">
-                  <b class="text-blue-800">Quá khứ hoàn thành (Past Perfect) vs Quá khứ đơn (Past Simple):</b><br>
-                  Khi có 2 hành động xảy ra trong quá khứ: <span class="hl-yellow">Hành động xảy ra trước → Had + V3</span> | <span class="hl-sky">Hành động xảy ra sau → V2/ed</span>.<br>
-                  <i>Ví dụ: By the time he arrived, the bus <u class="rule-under rule-under-amber">had left</u>.</i>
-                </div>
-                <div class="p-2.5 bg-emerald-50 rounded-lg border border-emerald-200">
-                  <b class="text-emerald-800">Hiện tại hoàn thành (Present Perfect):</b><br>
-                  Hành động xảy ra trong quá khứ kéo dài đến hiện tại (since, for) hoặc trải nghiệm không cần rõ mốc thời gian cụ thể (ever, never, already, yet).
-                </div>
-              </div>
-            </div>
+          <h3 class="text-xl font-bold text-slate-900 border-l-4 border-indigo-600 pl-3">1. Ma Trận 12 Thì chuẩn tiếng Anh</h3>
+          <div class="overflow-x-auto mt-4">
+            <table class="w-full text-left text-xs border border-slate-200 rounded-xl overflow-hidden">
+              <thead class="bg-indigo-900 text-white font-bold">
+                <tr>
+                  <th class="p-3">Thời gian</th>
+                  <th class="p-3">Đơn (Simple)</th>
+                  <th class="p-3">Tiếp diễn (Continuous)</th>
+                  <th class="p-3">Hoàn thành (Perfect)</th>
+                  <th class="p-3">Hoàn thành tiếp diễn</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-100 text-slate-700">
+                <tr class="bg-slate-50/50">
+                  <td class="p-3 font-bold text-indigo-700">Hiện tại (Present)</td>
+                  <td class="p-3 font-medium">S + V(s/es)</td>
+                  <td class="p-3 font-medium">S + am/is/are + V-ing</td>
+                  <td class="p-3 font-medium">S + have/has + V3/ed</td>
+                  <td class="p-3 font-medium">S + have/has been + V-ing</td>
+                </tr>
+                <tr>
+                  <td class="p-3 font-bold text-indigo-700">Quá khứ (Past)</td>
+                  <td class="p-3 font-medium">S + V2/ed</td>
+                  <td class="p-3 font-medium">S + was/were + V-ing</td>
+                  <td class="p-3 font-medium">S + had + V3/ed</td>
+                  <td class="p-3 font-medium">S + had been + V-ing</td>
+                </tr>
+                <tr class="bg-slate-50/50">
+                  <td class="p-3 font-bold text-indigo-700">Tương lai (Future)</td>
+                  <td class="p-3 font-medium">S + will + V</td>
+                  <td class="p-3 font-medium">S + will be + V-ing</td>
+                  <td class="p-3 font-medium">S + will have + V3/ed</td>
+                  <td class="p-3 font-medium">S + will have been + V-ing</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3 class="text-xl font-bold text-slate-900 border-l-4 border-indigo-600 pl-3 mt-8">2. Quy tắc 2 hành động trong Quá khứ</h3>
+          <div class="p-4 bg-amber-50 border border-amber-200 rounded-xl text-xs space-y-1.5 text-slate-800">
+            <p>• Hành động xảy ra <span class="hl-rose font-bold">TRƯỚC</span> một thời điểm / hành động khác trong quá khứ: chia <strong class="text-rose-700">Quá Khứ Hoàn Thành (had + V3)</strong>.</p>
+            <p>• Hành động xảy ra <span class="hl-blue font-bold">SAU</span>: chia <strong class="text-sky-700">Quá Khứ Đơn (V2/ed)</strong>.</p>
+            <p class="font-medium italic text-slate-600">Ví dụ: By the time he arrived (sau), the bus had left (trước).</p>
           </div>
         `,
-        exercises: [
+        practiceQuestions: [
           {
-            type: "fill",
-            title: "Bài 1, 2 & 3. Luyện chia thì động từ",
-            instruction: "Điền dạng đúng của động từ trong ngoặc:",
-            questions: [
-              { q: "1. She _____ (not go) to the gym on Sundays.", a: "doesn't go", exp: "Hiện tại đơn diễn tả thói quen định kỳ (Sundays)." },
-              { q: "2. Look! The dog _____ (chase) the cat!", a: "is chasing", exp: "Có 'Look!' báo hiệu hành động đang diễn ra tại thời điểm nói." },
-              { q: "3. We _____ (know) each other for over ten years.", a: "have known", exp: "'for over ten years' diễn tả khoảng thời gian từ quá khứ đến hiện tại." },
-              { q: "4. By the time he arrived, the bus _____ (leave).", a: "had left", exp: "Xe buýt rời đi trước khi anh ta đến nên dùng Past Perfect (had left)." },
-              { q: "5. When I got home, I realized I _____ (forget) my keys.", a: "had forgotten", exp: "Hành động để quên chìa khóa xảy ra trước lúc về đến nhà." }
-            ]
+            q: "1. She (finish) _____ her homework before dinner yesterday.",
+            hint: "Hành động làm xong bài tập trước bữa tối",
+            key: "had finished",
+            explanation: "Hành động hoàn thành trước một mốc thời gian quá khứ chia Past Perfect (had finished)."
+          },
+          {
+            q: "2. By the end of this year, I hope I (build) _____ strong habits.",
+            hint: "by the end of this year là dấu hiệu thì hoàn thành tương lai",
+            key: "will have built",
+            explanation: "Hành động sẽ hoàn tất trước thời điểm cuối năm -> Future Perfect (will have built)."
           }
         ]
       },
       {
         id: 9,
-        title: "Các Thì Dễ Nhầm Lẫn (Confusing Tenses)",
-        subtitle: "Past Simple vs Present Perfect, Will vs Be Going To",
-        category: "Thời & Thì (Tenses)",
+        title: "Lesson 9: Các Thì Dễ Nhầm Lẫn",
+        subtitle: "Quá khứ đơn vs. Hiện tại hoàn thành, Hiện tại hoàn thành tiếp diễn & Will vs. Be going to",
         theory: `
-          <div class="space-y-4 text-xs sm:text-sm">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div class="p-4 bg-white border border-slate-200 rounded-xl">
-                <h4 class="font-bold text-slate-900 mb-2">⚔️ Will vs Be Going To</h4>
-                <div class="space-y-2 text-xs text-slate-700">
-                  <div>• <b>Be going to:</b> Kế hoạch đã sắp xếp trước HOẶC dự đoán có bằng chứng hiện tại (<i>Look at the sky! It is going to rain</i>).</div>
-                  <div>• <b>Will:</b> Quyết định nảy sinh ngay tại thời điểm nói, lời hứa hoặc dự đoán cảm tính (<i>I will call her now before I forget</i>).</div>
-                </div>
-              </div>
+          <h3 class="text-xl font-bold text-slate-900 border-l-4 border-indigo-600 pl-3">1. Past Simple vs. Present Perfect</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4 text-xs">
+            <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-1.5">
+              <strong class="text-indigo-700 text-sm block">Quá Khứ Đơn (Past Simple)</strong>
+              <p>• Thời gian <span class="rule-under-rose font-bold">xác định rõ ràng</span> đã chấm dứt trong quá khứ <em>(yesterday, in 2020, 2 years ago, last week)</em>.</p>
+              <p>• <em>She graduated in 2020.</em></p>
+            </div>
+            <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-1.5">
+              <strong class="text-indigo-700 text-sm block">Hiện Tại Hoàn Thành (Present Perfect)</strong>
+              <p>• Thời gian <span class="rule-under-blue font-bold">không xác định</span>, nói về kinh nghiệm hoặc kết quả để lại ở hiện tại <em>(ever, never, just, yet, so far, since/for)</em>.</p>
+              <p>• <em>She has graduated. / I have never tried sushi.</em></p>
+            </div>
+          </div>
 
-              <div class="p-4 bg-white border border-slate-200 rounded-xl">
-                <h4 class="font-bold text-slate-900 mb-2">⚔️ Present Perfect vs Continuous</h4>
-                <div class="space-y-2 text-xs text-slate-700">
-                  <div>• <b>Present Perfect (have + V3):</b> Nhấn mạnh <u>kết quả</u>, số lần hoàn thành.</div>
-                  <div>• <b>Present Perfect Continuous (have been V-ing):</b> Nhấn mạnh <u>tính liên tục, quá trình kéo dài</u> (<i>I have been cleaning all morning</i>).</div>
-                </div>
-              </div>
+          <h3 class="text-xl font-bold text-slate-900 border-l-4 border-indigo-600 pl-3 mt-8">2. Will vs. Be Going To</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4 text-xs">
+            <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-1.5">
+              <strong class="text-indigo-700 text-sm block">WILL</strong>
+              <p>• Quyết định <span class="hl-yellow">tức thời tại thời điểm nói</span>.</p>
+              <p>• Lời hứa, cam kết, dự đoán chủ quan <em>(I promise I will send you the slides)</em>.</p>
+            </div>
+            <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-1.5">
+              <strong class="text-indigo-700 text-sm block">BE GOING TO</strong>
+              <p>• Kế hoạch / dự định <span class="hl-emerald">đã sắp xếp từ trước</span>.</p>
+              <p>• Dự đoán tương lai dựa trên <span class="rule-under-amber font-bold">bằng chứng thực tế hiện tại</span> <em>(Look at the sky, it's so dark! It is going to rain)</em>.</p>
             </div>
           </div>
         `,
-        exercises: [
+        practiceQuestions: [
           {
-            type: "choice",
-            title: "Bài 4. Phân biệt Will vs Be going to",
-            instruction: "Chọn hình thức tương lai đúng:",
-            questions: [
-              {
-                q: "1. I _____ my cousin in the morning - we've already arranged it.",
-                options: ["am going to meet", "will meet"],
-                a: "am going to meet",
-                exp: "Kế hoạch đã sắp đặt trước dùng 'be going to'."
-              },
-              {
-                q: "2. Look at the sky! It's so dark. It _____ soon for sure.",
-                options: ["is going to rain", "will rain"],
-                a: "is going to rain",
-                exp: "Có bằng chứng rõ ràng trước mắt (trời tối sầm) → dùng 'is going to'."
-              },
-              {
-                q: "3. Don't worry about the project. I _____ you the slides tonight, I promise!",
-                options: ["will send", "am going to send"],
-                a: "will send",
-                exp: "Lời hứa (promise) dùng 'will'."
-              }
-            ]
+            q: "1. She (work) _____ here since 2019 and still enjoys her job.",
+            hint: "since 2019 kéo dài tới hiện tại",
+            key: "has worked",
+            explanation: "Hành động bắt đầu trong quá khứ và vẫn tiếp tục ở hiện tại chia Present Perfect."
+          },
+          {
+            q: "2. Look at the sky! It's so dark. It (rain) _____ soon for sure.",
+            hint: "Dự đoán có bằng chứng cụ thể",
+            key: "is going to rain",
+            explanation: "Dự đoán có bằng chứng rõ ràng trước mắt dùng 'be going to'."
           }
         ]
       },
       {
         id: 10,
-        title: "Câu Bị Động (Passive Voice)",
-        subtitle: "Cấu trúc Be + V3, biến đổi qua các thì & Quy trình làm bánh/giấy",
-        category: "Cấu trúc & Cụm từ",
+        title: "Lesson 10: Câu Bị Động (Passive Voice)",
+        subtitle: "Công thức bị động tất cả các thì: Be + V3/ed & Bị động với Động từ khuyết thiếu (Modal verbs)",
         theory: `
-          <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm">
-            <h4 class="font-bold text-slate-900 mb-2">Công thức nền tảng: <span class="hl-yellow">S + BE (chia theo thì) + V3/ED (+ by O)</span></h4>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs mt-3">
-              <div class="p-2 bg-white rounded border border-slate-200">Hiện tại đơn: <b>am/is/are + V3</b></div>
-              <div class="p-2 bg-white rounded border border-slate-200">Hiện tại tiếp diễn: <b>am/is/are + being + V3</b></div>
-              <div class="p-2 bg-white rounded border border-slate-200">Quá khứ đơn: <b>was/were + V3</b></div>
-              <div class="p-2 bg-white rounded border border-slate-200">Hiện tại hoàn thành: <b>have/has been + V3</b></div>
-              <div class="p-2 bg-white rounded border border-slate-200">Động từ khuyết thiếu: <b>modal + be + V3</b></div>
+          <h3 class="text-xl font-bold text-slate-900 border-l-4 border-indigo-600 pl-3">1. Nguyên tắc chuyển đổi Câu Bị Động</h3>
+          <div class="p-4 bg-indigo-50 border border-indigo-200 rounded-xl text-xs space-y-2">
+            <p class="font-bold text-indigo-900 text-sm">Chủ động: S + V + O  ⟶  Bị động: S (tân ngữ cũ) + BE + V3/ed (+ by O)</p>
+            <p class="text-slate-600">Động từ <strong>to be</strong> được chia theo đúng thì của động từ chính trong câu chủ động.</p>
+          </div>
+
+          <h3 class="text-xl font-bold text-slate-900 border-l-4 border-indigo-600 pl-3 mt-6">2. Bảng công thức Bị Động các thì phổ biến</h3>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-3 text-xs">
+            <div class="p-3 bg-slate-50 border border-slate-200 rounded-lg">
+              <span class="font-bold text-slate-800">Hiện tại đơn:</span> am/is/are + V3/ed
+            </div>
+            <div class="p-3 bg-slate-50 border border-slate-200 rounded-lg">
+              <span class="font-bold text-slate-800">Quá khứ đơn:</span> was/were + V3/ed
+            </div>
+            <div class="p-3 bg-slate-50 border border-slate-200 rounded-lg">
+              <span class="font-bold text-slate-800">Hiện tại tiếp diễn:</span> am/is/are + being + V3/ed
+            </div>
+            <div class="p-3 bg-slate-50 border border-slate-200 rounded-lg">
+              <span class="font-bold text-slate-800">Hiện tại hoàn thành:</span> have/has + been + V3/ed
+            </div>
+            <div class="p-3 bg-slate-50 border border-slate-200 rounded-lg">
+              <span class="font-bold text-slate-800">Tương lai đơn:</span> will be + V3/ed
+            </div>
+            <div class="p-3 bg-slate-50 border border-slate-200 rounded-lg">
+              <span class="font-bold text-slate-800">Động từ khuyết thiếu:</span> Modal Verb + be + V3/ed
             </div>
           </div>
         `,
-        exercises: [
+        practiceQuestions: [
           {
-            type: "rewrite",
-            title: "Bài 1. Chuyển sang câu bị động",
-            instruction: "Viết lại câu chủ động sang bị động:",
-            questions: [
-              {
-                q: "Someone has stolen my bike from the parking lot.",
-                a: "My bike has been stolen from the parking lot.",
-                exp: "Hiện tại hoàn thành bị động: has been + V3."
-              },
-              {
-                q: "People speak English all over the world.",
-                a: "English is spoken all over the world.",
-                exp: "Hiện tại đơn bị động: is + spoken."
-              },
-              {
-                q: "They should clean the windows more often.",
-                a: "The windows should be cleaned more often.",
-                exp: "Modal verb: should be cleaned."
-              }
-            ]
+            q: "1. The police are investigating the case. (Chuyển sang bị động)",
+            hint: "Hiện tại tiếp diễn: is being V3",
+            key: "The case is being investigated by the police.",
+            explanation: "Hiện tại tiếp diễn đổi sang bị động: is being + investigated."
+          },
+          {
+            q: "2. They should clean the windows more often. (Chuyển sang bị động)",
+            hint: "Modal verb: should be cleaned",
+            key: "The windows should be cleaned more often.",
+            explanation: "Modal verb bị động: should + be + V3/ed."
           }
         ]
       },
       {
         id: 11,
-        title: "So Sánh (Comparisons)",
-        subtitle: "So sánh bằng (as...as), hơn (-er/more) và nhất (-est/the most)",
-        category: "Cấu trúc so sánh",
+        title: "Lesson 11: So Sánh (Comparisons)",
+        subtitle: "So sánh bằng (as...as), So sánh hơn (-er / more...than) & So sánh nhất (-est / most)",
         theory: `
-          <div class="space-y-3 text-xs sm:text-sm">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
-              <div class="p-3 bg-blue-50 border border-blue-200 rounded-xl">
-                <b class="text-blue-900 block mb-1">So sánh BẰNG</b>
-                <span class="hl-sky">as + adj/adv + as</span><br>
-                Phủ định: <b>not as/so + adj + as</b><br>
-                <i>Ví dụ: She is as beautiful as her mother.</i>
-              </div>
-              <div class="p-3 bg-amber-50 border border-amber-200 rounded-xl">
-                <b class="text-amber-900 block mb-1">So sánh HƠN</b>
-                • Ngắn: <b>adj-er + than</b> (cleaner)<br>
-                • Dài: <b>more + adj + than</b> (more peaceful)<br>
-                Nhấn mạnh: <b>much / far + so sánh hơn</b>.
-              </div>
-              <div class="p-3 bg-purple-50 border border-purple-200 rounded-xl">
-                <b class="text-purple-900 block mb-1">So sánh NHẤT</b>
-                • Ngắn: <b>the + adj-est</b> (highest)<br>
-                • Dài: <b>the most + adj</b> (the most famous)<br>
-                Đặc biệt: good → better → the best.
-              </div>
+          <h3 class="text-xl font-bold text-slate-900 border-l-4 border-indigo-600 pl-3">1. Cấu trúc 3 cấp độ So Sánh</h3>
+          <div class="space-y-4 mt-4 text-xs">
+            <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-1">
+              <h4 class="font-bold text-indigo-700 text-sm">A. So sánh bằng (Equality)</h4>
+              <p>• Khẳng định: <span class="hl-emerald font-bold">as + adj/adv + as</span> <em>(She is as beautiful as her mother).</em></p>
+              <p>• Phủ định: <span class="hl-rose font-bold">not as / not so + adj/adv + as</span> <em>(This house is not as spacious as mine).</em></p>
+            </div>
+            <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-1">
+              <h4 class="font-bold text-indigo-700 text-sm">B. So sánh hơn (Comparative)</h4>
+              <p>• Tính từ ngắn (1 âm tiết): <span class="hl-blue font-bold">adj + er + than</span> <em>(colder, bigger, higher).</em></p>
+              <p>• Tính từ dài (2+ âm tiết): <span class="hl-blue font-bold">more + adj + than</span> <em>(more comfortable, more expensive).</em></p>
+              <p>• Tính từ đuôi -y: đổi thành <em>-ier (happy → happier, friendly → friendlier)</em>.</p>
+            </div>
+            <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-1">
+              <h4 class="font-bold text-indigo-700 text-sm">C. So sánh nhất (Superlative)</h4>
+              <p>• Tính từ ngắn: <span class="hl-yellow font-bold">the + adj + est</span> <em>(the highest mountain, the hottest day).</em></p>
+              <p>• Tính từ dài: <span class="hl-yellow font-bold">the most + adj</span> <em>(the most interesting book).</em></p>
+              <p>• Bất quy tắc: <em>good → better → the best | bad → worse → the worst</em>.</p>
             </div>
           </div>
         `,
-        exercises: [
+        practiceQuestions: [
           {
-            type: "rewrite",
-            title: "Bài 2. Viết lại câu dùng (not) as...as",
-            instruction: "Viết lại câu tương đương:",
-            questions: [
-              {
-                q: "This chair is more comfortable than that one. → That chair is not...",
-                a: "That chair is not as comfortable as this one.",
-                exp: "Cấu trúc not as + adj + as."
-              },
-              {
-                q: "My phone is faster than yours. → Your phone is not...",
-                a: "Your phone is not as fast as mine.",
-                exp: "Dùng mine để tránh lặp lại 'my phone'."
-              }
-            ]
+            q: "1. Sarah is more intelligent than her brother. (Viết lại dùng not as...as)",
+            hint: "Her brother is...",
+            key: "Her brother is not as intelligent as Sarah.",
+            explanation: "A hơn B nghĩa là B không bằng A (not as...as)."
+          },
+          {
+            q: "2. That was the (bad) _____ meal I've ever had!",
+            hint: "So sánh nhất của bad",
+            key: "worst",
+            explanation: "bad -> worse -> the worst."
           }
         ]
       },
       {
         id: 12,
-        title: "Câu Điều Kiện (Conditionals)",
-        subtitle: "Loại 0, 1, 2, 3 và cách ứng dụng linh hoạt",
-        category: "Cấu trúc câu",
+        title: "Lesson 12: Câu Điều Kiện (Conditionals)",
+        subtitle: "Câu điều kiện loại 0, 1, 2, 3 và cách lùi thì theo logic thực tế",
         theory: `
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
-            <div class="p-3 bg-slate-50 border border-slate-200 rounded-xl">
-              <b class="text-blue-700 block mb-1">Loại 0 (Sự thật hiển nhiên)</b>
-              If + S + V(s/es), S + V(s/es).<br>
-              <i>Ví dụ: If water reaches 100°C, it boils.</i>
-            </div>
-            <div class="p-3 bg-slate-50 border border-slate-200 rounded-xl">
-              <b class="text-blue-700 block mb-1">Loại 1 (Có thể xảy ra ở hiện tại/tương lai)</b>
-              If + S + V(s/es), S + will + V.<br>
-              <i>Ví dụ: If you study hard, you will improve.</i>
-            </div>
-            <div class="p-3 bg-slate-50 border border-slate-200 rounded-xl">
-              <b class="text-blue-700 block mb-1">Loại 2 (Trái với hiện tại)</b>
-              If + S + V2/ed (were), S + would + V.<br>
-              <i>Ví dụ: If I were you, I would take that course.</i>
-            </div>
-            <div class="p-3 bg-slate-50 border border-slate-200 rounded-xl">
-              <b class="text-blue-700 block mb-1">Loại 3 (Trái với quá khứ)</b>
-              If + S + had + V3, S + would have + V3.<br>
-              <i>Ví dụ: If I had woken up earlier, I wouldn't have missed it.</i>
-            </div>
+          <h3 class="text-xl font-bold text-slate-900 border-l-4 border-indigo-600 pl-3">1. Ma Trận 4 Loại Câu Điều Kiện</h3>
+          <div class="overflow-x-auto mt-4">
+            <table class="w-full text-left text-xs border border-slate-200 rounded-xl overflow-hidden">
+              <thead class="bg-indigo-900 text-white font-bold">
+                <tr>
+                  <th class="p-3">Loại</th>
+                  <th class="p-3">Mệnh đề IF</th>
+                  <th class="p-3">Mệnh đề Chính</th>
+                  <th class="p-3">Mục đích & Ngữ cảnh</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-100 text-slate-700">
+                <tr class="bg-slate-50/50">
+                  <td class="p-3 font-bold text-indigo-700">Loại 0</td>
+                  <td class="p-3">V (Hiện tại đơn)</td>
+                  <td class="p-3">V (Hiện tại đơn)</td>
+                  <td class="p-3">Chân lý, quy luật tự nhiên <em>(If water reaches 100°C, it boils)</em>.</td>
+                </tr>
+                <tr>
+                  <td class="p-3 font-bold text-indigo-700">Loại 1</td>
+                  <td class="p-3">V (Hiện tại đơn)</td>
+                  <td class="p-3">will + V (nguyên mẫu)</td>
+                  <td class="p-3">Có thể xảy ra ở hiện tại hoặc tương lai <em>(If it rains, we will stay home)</em>.</td>
+                </tr>
+                <tr class="bg-slate-50/50">
+                  <td class="p-3 font-bold text-indigo-700">Loại 2</td>
+                  <td class="p-3">V2/ed (were cho mọi ngôi)</td>
+                  <td class="p-3">would + V (nguyên mẫu)</td>
+                  <td class="p-3">Trái với thực tế ở hiện tại <em>(If I were you, I would take that course)</em>.</td>
+                </tr>
+                <tr>
+                  <td class="p-3 font-bold text-indigo-700">Loại 3</td>
+                  <td class="p-3">had + V3/ed</td>
+                  <td class="p-3">would have + V3/ed</td>
+                  <td class="p-3">Trái với thực tế đã xảy ra trong quá khứ <em>(If I had woken up early, I wouldn't have missed it)</em>.</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         `,
-        exercises: [
+        practiceQuestions: [
           {
-            type: "fill",
-            title: "Bài 1. Điền dạng đúng trong câu điều kiện",
-            instruction: "Chia động từ trong ngoặc theo đúng loại câu điều kiện:",
-            questions: [
-              { q: "1. If water reaches 100°C, it _____ (boil).", a: "boils", exp: "Điều kiện loại 0: sự thật khoa học." },
-              { q: "2. If I were you, I _____ that IELTS course. (take)", a: "would take", exp: "Điều kiện loại 2: lời khuyên giả định." },
-              { q: "3. If she had practiced more, she _____ better in the exam. (perform)", a: "would have performed", exp: "Điều kiện loại 3: trái với sự việc trong quá khứ." }
-            ]
+            q: "1. If water reaches 100°C, it (boil) _____.",
+            hint: "Quy luật tự nhiên loại 0",
+            key: "boils",
+            explanation: "Sự thật hiển nhiên -> Loại 0 chia Hiện tại đơn (boils)."
+          },
+          {
+            q: "2. If I (know) _____ about the meeting, I would have been there.",
+            hint: "Vế chính là would have V3 -> điều kiện loại 3",
+            key: "had known",
+            explanation: "Điều kiện loại 3: Mệnh đề if dùng had + V3 (had known)."
           }
         ]
       },
       {
         id: 13,
-        title: "Mệnh Đề Quan Hệ (Relative Clauses)",
-        subtitle: "Who, Whom, Which, That, Where, When, Why & Dấu phẩy",
-        category: "Cấu trúc câu",
+        title: "Lesson 13: Mệnh Đề Quan Hệ (Relative Clauses)",
+        subtitle: "Đại từ Who, Whom, Which, That, Where, When & Rút gọn V-ing / V3-ed",
         theory: `
-          <div class="space-y-3 text-xs sm:text-sm">
-            <div class="p-3 bg-slate-50 border border-slate-200 rounded-xl">
-              <h4 class="font-bold text-slate-900 mb-2">📌 Khi nào CÓ dấu phẩy (Mệnh đề không xác định)?</h4>
-              <p class="text-xs text-slate-700 leading-relaxed">
-                Khi danh từ đứng trước đã <u class="rule-under rule-under-amber font-semibold">xác định rõ ràng</u> (Tên riêng, có This/That, Sở hữu như My dog, Paris, Mr. Brown). Khi có dấu phẩy, <u class="rule-under rule-under-rose font-semibold">tuyệt đối KHÔNG dùng THAT</u>!
-              </p>
+          <h3 class="text-xl font-bold text-slate-900 border-l-4 border-indigo-600 pl-3">1. Đại từ & Trạng từ quan hệ</h3>
+          <ul class="list-disc pl-5 mt-3 space-y-1.5 text-xs text-slate-700">
+            <li><span class="hl-blue font-bold">who:</span> thay cho người làm chủ ngữ <em>(The man who designed this bridge).</em></li>
+            <li><span class="hl-emerald font-bold">which:</span> thay cho vật/sự việc <em>(The book which inspired me).</em></li>
+            <li><span class="hl-yellow font-bold">that:</span> có thể thay cho cả người và vật trong mệnh đề xác định (không đứng sau dấu phẩy).</li>
+            <li><span class="hl-rose font-bold">where / when / why:</span> thay cho nơi chốn, thời gian, nguyên do.</li>
+          </ul>
+
+          <h3 class="text-xl font-bold text-slate-900 border-l-4 border-indigo-600 pl-3 mt-8">2. Rút gọn Mệnh đề quan hệ (IELTS Writing ăn điểm)</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-3 text-xs">
+            <div class="p-3.5 bg-emerald-50 border border-emerald-200 rounded-xl space-y-1">
+              <strong class="text-emerald-900 font-bold block">Chủ động ⟶ Rút về V-ING</strong>
+              <p><em>The man <del class="text-rose-500">who is standing</del> over there ⟶ The man <strong>standing</strong> over there is my teacher.</em></p>
             </div>
-            <div class="p-3 bg-white border border-slate-200 rounded-xl">
-              <h4 class="font-bold text-slate-900 mb-1">Rút gọn mệnh đề quan hệ:</h4>
-              <p class="text-xs text-slate-700">
-                • <b>Chủ động</b>: V-ing (The man <s>who is standing</s> over there → The man standing...)<br>
-                • <b>Bị động</b>: V3/ed (The painting <s>which was created</s> by an artist → The painting created...)
-              </p>
+            <div class="p-3.5 bg-sky-50 border border-sky-200 rounded-xl space-y-1">
+              <strong class="text-sky-900 font-bold block">Bị động ⟶ Rút về V3/ED</strong>
+              <p><em>The painting <del class="text-rose-500">which was created</del> by a local artist ⟶ The painting <strong>created</strong> by a local artist.</em></p>
             </div>
           </div>
         `,
-        exercises: [
+        practiceQuestions: [
           {
-            type: "choice",
-            title: "Bài 2. Dấu phẩy trong mệnh đề quan hệ",
-            instruction: "Chọn câu có dấu phẩy chính xác:",
-            questions: [
-              {
-                q: "1. Paris _____ is famous for its beauty.",
-                options: ["which is the capital of France", ", which is the capital of France,"],
-                a: ", which is the capital of France,",
-                exp: "Paris là danh từ riêng đã xác định rõ nên bắt buộc dùng dấu phẩy bao quanh mệnh đề bổ sung."
-              },
-              {
-                q: "2. The students _____ often get better results.",
-                options: ["who study hard", ", who study hard,"],
-                a: "who study hard",
-                exp: "Cần xác định rõ học sinh nào (mệnh đề quan hệ xác định) nên không dùng dấu phẩy."
-              }
-            ]
+            q: "1. The novel (publish) _____ last month became a bestseller. (Rút gọn mệnh đề)",
+            hint: "Tiểu thuyết được xuất bản (bị động)",
+            key: "published",
+            explanation: "Bị động rút gọn còn V3/ed (published)."
+          },
+          {
+            q: "2. The students (prepare) _____ for the IELTS exam often feel stressed. (Rút gọn mệnh đề)",
+            hint: "Học sinh chủ động chuẩn bị",
+            key: "preparing",
+            explanation: "Chủ động rút gọn còn V-ing (preparing)."
           }
         ]
       },
       {
         id: 14,
-        title: "Because / Although",
-        subtitle: "Because/Because of & Although/Despite/In spite of",
-        category: "Liên từ & Cấu trúc",
+        title: "Lesson 14: Because/Because of - Although/Despite",
+        subtitle: "Chuyển đổi linh hoạt giữa Mệnh đề (Clause S+V) và Cụm danh từ / V-ing (Phrase)",
         theory: `
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs sm:text-sm">
-            <div class="p-4 bg-blue-50 border border-blue-200 rounded-xl">
-              <h4 class="font-bold text-blue-900 mb-2">Bởi vì (Reason)</h4>
-              <p class="text-xs text-slate-700 mb-2">
-                • <span class="hl-sky">Because + Clause (S + V)</span><br>
-                • <span class="hl-yellow">Because of + Noun phrase / V-ing</span>
-              </p>
-              <i class="text-xs text-slate-500">We were late because of the traffic.</i>
+          <h3 class="text-xl font-bold text-slate-900 border-l-4 border-indigo-600 pl-3">1. Nguyên tắc đối sánh Cặp Từ</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4 text-xs">
+            <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2">
+              <h4 class="font-bold text-indigo-700 text-sm">Chỉ Nguyên Nhân (Bởi vì)</h4>
+              <p>• <span class="hl-blue font-bold">Because + S + V</span> <em>(I stayed home because it was raining).</em></p>
+              <p>• <span class="hl-emerald font-bold">Because of + Noun Phrase / V-ing</span> <em>(I stayed home because of the rain).</em></p>
             </div>
-
-            <div class="p-4 bg-amber-50 border border-amber-200 rounded-xl">
-              <h4 class="font-bold text-amber-900 mb-2">Mặc dù (Concession)</h4>
-              <p class="text-xs text-slate-700 mb-2">
-                • <span class="hl-sky">Although + Clause (S + V)</span><br>
-                • <span class="hl-yellow">Despite / In spite of + Noun phrase / V-ing</span>
-              </p>
-              <i class="text-xs text-slate-500">Despite the heavy rain, they played football.</i>
+            <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2">
+              <h4 class="font-bold text-indigo-700 text-sm">Chỉ Sự Nhượng Bộ (Mặc dù)</h4>
+              <p>• <span class="hl-blue font-bold">Although + S + V</span> <em>(Although she was tired, she finished her work).</em></p>
+              <p>• <span class="hl-emerald font-bold">Despite / In spite of + Noun Phrase / V-ing</span> <em>(Despite being tired, she finished her work).</em></p>
             </div>
           </div>
         `,
-        exercises: [
+        practiceQuestions: [
           {
-            type: "choice",
-            title: "Bài 1 & 4. Điền liên từ tương ứng",
-            instruction: "Chọn từ thích hợp cho chỗ trống:",
-            questions: [
-              {
-                q: "1. The flight was delayed _____ the fog.",
-                options: ["because", "because of"],
-                a: "because of",
-                exp: "the fog là cụm danh từ nên dùng 'because of'."
-              },
-              {
-                q: "2. They didn't come to the party _____ they were busy.",
-                options: ["because", "because of"],
-                a: "because",
-                exp: "they were busy là mệnh đề (S + V) nên dùng 'because'."
-              },
-              {
-                q: "3. _____ the heavy rain, they continued playing football.",
-                options: ["Although", "Despite"],
-                a: "Despite",
-                exp: "the heavy rain là cụm danh từ nên dùng 'Despite'."
-              }
-            ]
+            q: "1. The flight was delayed _____ the heavy fog.",
+            hint: "the heavy fog là cụm danh từ",
+            key: "because of",
+            explanation: "the heavy fog là danh từ nên dùng 'because of'."
+          },
+          {
+            q: "2. _____ it was raining heavily, they continued playing football.",
+            hint: "it was raining heavily là mệnh đề S+V",
+            key: "Although",
+            explanation: "Mệnh đề hoàn chỉnh S+V dùng 'Although'."
           }
         ]
       },
       {
         id: 15,
-        title: "So/Such & Too/Enough",
-        subtitle: "So...that, Such...that & Too...to, Enough to",
-        category: "Cấu trúc nâng cao",
+        title: "Lesson 15: So/Such...That & Too/Enough",
+        subtitle: "Cấu trúc 'Quá...đến nỗi mà' và 'Quá...không thể' / 'Đủ...để làm gì'",
         theory: `
-          <div class="space-y-4 text-xs sm:text-sm">
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              <div class="p-3 bg-slate-50 border border-slate-200 rounded-xl">
-                <b class="text-blue-800 block mb-1">SO ... THAT</b>
-                <b>so + adj / adv + that + Clause</b><br>
-                <i>The movie was so interesting that we watched it twice.</i>
-              </div>
-              <div class="p-3 bg-slate-50 border border-slate-200 rounded-xl">
-                <b class="text-blue-800 block mb-1">SUCH ... THAT</b>
-                <b>such + (a/an) + adj + noun + that + Clause</b><br>
-                <i>It was such an interesting story that we loved it.</i>
-              </div>
-              <div class="p-3 bg-slate-50 border border-slate-200 rounded-xl">
-                <b class="text-blue-800 block mb-1">TOO ... TO (Quá... không thể)</b>
-                <b>too + adj / adv (+ for sb) + to-V</b><br>
-                <i>The coffee was too hot to drink.</i>
-              </div>
-              <div class="p-3 bg-slate-50 border border-slate-200 rounded-xl">
-                <b class="text-blue-800 block mb-1">ENOUGH (Đủ để làm gì)</b>
-                <b>adj / adv + enough (+ for sb) + to-V</b><br>
-                <i>She is smart enough to solve this problem.</i>
-              </div>
+          <h3 class="text-xl font-bold text-slate-900 border-l-4 border-indigo-600 pl-3">1. Cấu trúc SO...THAT và SUCH...THAT</h3>
+          <div class="space-y-3 mt-4 text-xs">
+            <div class="p-3 bg-slate-50 border border-slate-200 rounded-xl">
+              <p>• <span class="hl-yellow font-bold">SO + adj/adv + THAT + Clause:</span> <em>The test was so difficult that nobody passed.</em></p>
+              <p class="mt-1">• <span class="hl-yellow font-bold">SUCH + (a/an) + adj + Noun + THAT + Clause:</span> <em>It was such a boring movie that I fell asleep.</em></p>
+              <p class="mt-1 text-rose-700 font-semibold">• Lưu ý đặc biệt: 'news' là danh từ không đếm được ⟶ KHÔNG có 'a': <em>It was such shocking news that everyone was silent.</em></p>
+            </div>
+          </div>
+
+          <h3 class="text-xl font-bold text-slate-900 border-l-4 border-indigo-600 pl-3 mt-8">2. Cấu trúc TOO...TO và ENOUGH...TO</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-3 text-xs">
+            <div class="p-3 bg-slate-50 border border-slate-200 rounded-xl space-y-1">
+              <strong class="text-indigo-700 block text-sm">TOO...TO (Quá đến mức không thể)</strong>
+              <p><span class="hl-rose font-bold">too + adj/adv (+ for sb) + to V</span></p>
+              <p>• <em>The coffee was too hot to drink.</em></p>
+              <p>• <em>The box was too heavy for me to carry upstairs.</em></p>
+            </div>
+            <div class="p-3 bg-slate-50 border border-slate-200 rounded-xl space-y-1">
+              <strong class="text-indigo-700 block text-sm">ENOUGH...TO (Đủ để làm gì)</strong>
+              <p><span class="hl-emerald font-bold">adj/adv + enough (+ for sb) + to V</span></p>
+              <p>• <em>She isn't tall enough to reach the top shelf.</em></p>
+              <p>• <em>He speaks English well enough to work as a tour guide.</em></p>
             </div>
           </div>
         `,
-        exercises: [
+        practiceQuestions: [
           {
-            type: "fill",
-            title: "Bài 1 & 4. Điền So, Such, Too hoặc Enough",
-            instruction: "Điền từ thích hợp vào chỗ trống:",
-            questions: [
-              { q: "1. It was _____ a boring movie that I fell asleep.", a: "such", exp: "Trước cụm danh từ 'a boring movie' dùng 'such'." },
-              { q: "2. The test was _____ difficult that nobody passed.", a: "so", exp: "Trước tính từ 'difficult' đứng một mình dùng 'so'." },
-              { q: "3. The coffee was _____ hot to drink.", a: "too", exp: "Cấu trúc too + adj + to V: quá nóng không thể uống." },
-              { q: "4. She isn't tall _____ to reach the top shelf.", a: "enough", exp: "Cấu trúc adj + enough to V." }
-            ]
+            q: "1. It was (so / such) _____ a boring movie that I fell asleep.",
+            hint: "có 'a boring movie' là cụm danh từ",
+            key: "such",
+            explanation: "such + a/an + adj + noun."
+          },
+          {
+            q: "2. The coffee was _____ hot _____ drink.",
+            hint: "quá nóng không thể uống",
+            key: "too, to",
+            explanation: "too + adj + to V: quá nóng không thể uống."
+          },
+          {
+            q: "3. She is smart _____ solve this problem.",
+            hint: "đủ thông minh để làm gì",
+            key: "enough to",
+            explanation: "adj + enough + to V: đủ thông minh để giải bài toán."
           }
         ]
       }
     ];
 
+    // State
     let currentLessonId = 2;
-    let currentViewMode = "theory"; // "theory" or "practice"
-    let userProgress = JSON.parse(localStorage.getItem('ielts_grammar_progress') || '{}');
+    let currentTab = 'theory'; // 'theory' or 'practice'
+    let answersVisible = false;
 
-    // DOM Elements
-    const lessonListNav = document.getElementById('lessonListNav');
-    const theoryView = document.getElementById('theoryView');
-    const practiceView = document.getElementById('practiceView');
-    const tabTheory = document.getElementById('tabTheory');
-    const tabPractice = document.getElementById('tabPractice');
-    const lessonTitle = document.getElementById('lessonTitle');
-    const lessonTag = document.getElementById('lessonTag');
-    const lessonCategory = document.getElementById('lessonCategory');
-    const lessonSearch = document.getElementById('lessonSearch');
-    const globalScoreBadge = document.getElementById('globalScoreBadge');
-    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-    const closeSidebarBtn = document.getElementById('closeSidebarBtn');
-    const sidebar = document.getElementById('sidebar');
-    const sidebarOverlay = document.getElementById('sidebarOverlay');
-
-    function renderLessonNavigation(filter = "") {
-      lessonListNav.innerHTML = "";
-      const filtered = LESSONS_DATA.filter(l => 
-        l.title.toLowerCase().includes(filter.toLowerCase()) || 
-        l.subtitle.toLowerCase().includes(filter.toLowerCase())
-      );
-
-      filtered.forEach(lesson => {
-        const isActive = lesson.id === currentLessonId;
-        const isCompleted = userProgress[lesson.id]?.completed;
-
-        const btn = document.createElement('button');
-        btn.className = `w-full text-left p-3 rounded-xl transition flex items-center justify-between gap-3 text-xs sm:text-sm font-medium ${
-          isActive 
-            ? 'bg-blue-50 text-blue-700 border border-blue-200 font-bold shadow-xs' 
-            : 'text-slate-600 hover:bg-slate-100'
-        }`;
-        
-        btn.innerHTML = `
-          <div class="flex items-center gap-2.5 overflow-hidden">
-            <span class="w-6 h-6 shrink-0 flex items-center justify-center rounded-lg text-xs font-bold ${
-              isActive ? 'bg-blue-600 text-white' : 'bg-slate-200 text-slate-700'
-            }">
-              ${lesson.id}
-            </span>
-            <div class="truncate">
-              <div class="truncate font-semibold">${lesson.title}</div>
-              <div class="text-[10px] text-slate-400 truncate">${lesson.subtitle}</div>
-            </div>
-          </div>
-          ${isCompleted ? '<span class="text-emerald-500 font-bold text-base">✓</span>' : ''}
-        `;
-
-        btn.onclick = () => {
-          selectLesson(lesson.id);
-          closeSidebar();
-        };
-
-        lessonListNav.appendChild(btn);
-      });
-
-      updateGlobalProgress();
+    // Render Navigation
+    function initNav() {
+      const navContainer = document.getElementById('lesson-nav');
+      navContainer.innerHTML = lessonsData.map(l => `
+        <button onclick="selectLesson(${l.id})" id="nav-item-${l.id}" class="w-full text-left px-3 py-2.5 rounded-xl text-xs font-semibold flex items-center justify-between transition-all touch-target ${l.id === currentLessonId ? 'bg-indigo-600 text-white shadow-sm' : 'text-slate-700 hover:bg-slate-100'}">
+          <span class="truncate">${l.title}</span>
+          <i class="ph-bold ph-caret-right text-xs opacity-70"></i>
+        </button>
+      `).join('');
     }
 
+    // Select Lesson
     function selectLesson(id) {
       currentLessonId = id;
-      const lesson = LESSONS_DATA.find(l => l.id === id);
+      const lesson = lessonsData.find(l => l.id === id);
       if (!lesson) return;
 
-      lessonTag.textContent = `Lesson ${lesson.id}`;
-      lessonCategory.textContent = lesson.category;
-      lessonTitle.textContent = lesson.title;
-
-      // Render Theory
-      theoryView.innerHTML = `
-        <div class="bg-white p-5 sm:p-7 rounded-2xl border border-slate-200/80 shadow-xs">
-          <div class="flex items-center justify-between pb-4 mb-4 border-b border-slate-100">
-            <h3 class="text-base sm:text-lg font-bold text-slate-900 flex items-center gap-2">
-              <span class="text-blue-600">📖</span> Tóm Tắt Trọng Tâm & Dấu Hiệu Nhận Biết
-            </h3>
-            <button onclick="switchView('practice')" class="text-xs font-semibold text-blue-600 hover:text-blue-700 flex items-center gap-1">
-              Vào làm bài tập →
-            </button>
-          </div>
-          ${lesson.theory}
-        </div>
-      `;
-
-      // Render Practice
-      renderPracticeExercises(lesson);
-
-      renderLessonNavigation(lessonSearch.value);
-    }
-
-    function renderPracticeExercises(lesson) {
-      practiceView.innerHTML = "";
-
-      if (!lesson.exercises || lesson.exercises.length === 0) {
-        practiceView.innerHTML = `<div class="bg-white p-6 rounded-2xl text-center text-slate-400">Đang cập nhật thêm bài tập cho phần này...</div>`;
-        return;
-      }
-
-      lesson.exercises.forEach((ex, exIndex) => {
-        const exBox = document.createElement('div');
-        exBox.className = "bg-white p-5 sm:p-7 rounded-2xl border border-slate-200/80 shadow-xs space-y-4";
-        
-        let headerHtml = `
-          <div>
-            <h3 class="text-base sm:text-lg font-bold text-slate-900">${ex.title}</h3>
-            <p class="text-xs text-slate-500 mt-0.5">${ex.instruction}</p>
-          </div>
-        `;
-
-        let contentHtml = "";
-
-        // Sort Type (e.g. Countable/Uncountable sorting)
-        if (ex.type === "sort") {
-          contentHtml = `
-            <div class="space-y-4">
-              <div class="flex flex-wrap gap-2 p-3 bg-slate-50 rounded-xl border border-slate-200" id="sortPool_${exIndex}">
-                ${ex.items.map((item, i) => `
-                  <button onclick="handleSortChipClick('${item.word}', '${item.cat}', ${exIndex}, ${i})" id="chip_${exIndex}_${i}" class="px-3 py-1.5 bg-white border border-slate-300 rounded-lg text-xs font-medium hover:border-blue-400 active:scale-95 transition shadow-2xs">
-                    ${item.word}
-                  </button>
-                `).join('')}
-              </div>
-
-              <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                <div class="p-3 bg-emerald-50/50 border border-emerald-200 rounded-xl min-h-[110px]" id="box_count_${exIndex}">
-                  <span class="text-xs font-bold text-emerald-800 block mb-2">Countable</span>
-                  <div class="flex flex-wrap gap-1" id="bucket_count_${exIndex}"></div>
-                </div>
-                <div class="p-3 bg-rose-50/50 border border-rose-200 rounded-xl min-h-[110px]" id="box_uncount_${exIndex}">
-                  <span class="text-xs font-bold text-rose-800 block mb-2">Uncountable</span>
-                  <div class="flex flex-wrap gap-1" id="bucket_uncount_${exIndex}"></div>
-                </div>
-                <div class="p-3 bg-amber-50/50 border border-amber-200 rounded-xl min-h-[110px]" id="box_both_${exIndex}">
-                  <span class="text-xs font-bold text-amber-800 block mb-2">Both</span>
-                  <div class="flex flex-wrap gap-1" id="bucket_both_${exIndex}"></div>
-                </div>
-              </div>
-            </div>
-          `;
-        }
-
-        // Fill in the blanks & Sentence Rewriting
-        if (ex.type === "fill" || ex.type === "rewrite") {
-          contentHtml = `
-            <div class="space-y-3">
-              ${ex.questions.map((qItem, qIdx) => `
-                <div class="p-3.5 bg-slate-50/80 rounded-xl border border-slate-200/80 space-y-2">
-                  <div class="text-xs sm:text-sm font-semibold text-slate-800">${qItem.q}</div>
-                  <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-2">
-                    <input type="text" id="input_${exIndex}_${qIdx}" placeholder="Nhập đáp án của bạn..." class="flex-1 px-3 py-2 text-xs sm:text-sm bg-white border border-slate-300 rounded-lg outline-hidden focus:border-blue-500 focus:ring-1 focus:ring-blue-500 font-medium">
-                    <button onclick="checkFillAnswer(${exIndex}, ${qIdx}, '${encodeURIComponent(qItem.a)}', '${encodeURIComponent(qItem.exp)}')" class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-xs font-bold transition shadow-2xs">
-                      Kiểm Tra
-                    </button>
-                  </div>
-                  <div id="feedback_${exIndex}_${qIdx}" class="text-xs hidden mt-1.5 p-2.5 rounded-lg"></div>
-                </div>
-              `).join('')}
-            </div>
-          `;
-        }
-
-        // Multiple Choice
-        if (ex.type === "choice") {
-          contentHtml = `
-            <div class="space-y-3">
-              ${ex.questions.map((qItem, qIdx) => `
-                <div class="p-3.5 bg-slate-50/80 rounded-xl border border-slate-200/80 space-y-2">
-                  <div class="text-xs sm:text-sm font-semibold text-slate-800">${qItem.q}</div>
-                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                    ${qItem.options.map(opt => `
-                      <button onclick="checkChoiceAnswer(this, ${exIndex}, ${qIdx}, '${encodeURIComponent(opt)}', '${encodeURIComponent(qItem.a)}', '${encodeURIComponent(qItem.exp)}')" class="choice-btn text-left px-3.5 py-2.5 bg-white border border-slate-300 hover:border-blue-400 rounded-lg text-xs sm:text-sm font-medium transition shadow-2xs">
-                        ${opt}
-                      </button>
-                    `).join('')}
-                  </div>
-                  <div id="feedback_${exIndex}_${qIdx}" class="text-xs hidden mt-1.5 p-2.5 rounded-lg"></div>
-                </div>
-              `).join('')}
-            </div>
-          `;
-        }
-
-        exBox.innerHTML = headerHtml + contentHtml;
-        practiceView.appendChild(exBox);
-      });
-    }
-
-    function normalizeStr(str) {
-      return (str || "").toLowerCase().trim().replace(/[.,/#!$%^&*;:{}=\-_`~()]/g, "").replace(/\s+/g, " ");
-    }
-
-    window.checkFillAnswer = function(exIdx, qIdx, encodedAns, encodedExp) {
-      const correctAns = decodeURIComponent(encodedAns);
-      const explanation = decodeURIComponent(encodedExp);
-      const inputEl = document.getElementById(`input_${exIdx}_${qIdx}`);
-      const feedbackEl = document.getElementById(`feedback_${exIdx}_${qIdx}`);
-      const userVal = inputEl.value.trim();
-
-      if (!userVal) {
-        feedbackEl.className = "text-xs p-2.5 rounded-lg bg-amber-50 text-amber-800 border border-amber-200 block";
-        feedbackEl.innerHTML = "⚠️ Vui lòng nhập đáp án trước khi kiểm tra!";
-        return;
-      }
-
-      // Check equivalency (supports multiple forms like Ø or 0)
-      const normUser = normalizeStr(userVal);
-      const normCorrect = normalizeStr(correctAns);
-
-      const isZero = (normCorrect === "ø" || normCorrect === "0" || normCorrect === "") && (normUser === "0" || normUser === "ø" || normUser === "none");
-      const isCorrect = (normUser === normCorrect) || isZero;
-
-      feedbackEl.classList.remove('hidden');
-      if (isCorrect) {
-        feedbackEl.className = "text-xs p-2.5 rounded-lg bg-emerald-50 text-emerald-800 border border-emerald-200 block";
-        feedbackEl.innerHTML = `
-          <div class="font-bold flex items-center gap-1">✅ Chính xác! Tuyệt vời!</div>
-          <div class="mt-1 text-slate-600"><b>Giải thích:</b> ${explanation}</div>
-        `;
-        inputEl.classList.add('border-emerald-500', 'bg-emerald-50/30');
-        triggerConfettiMini();
-        recordProgress();
-      } else {
-        feedbackEl.className = "text-xs p-2.5 rounded-lg bg-rose-50 text-rose-800 border border-rose-200 block";
-        feedbackEl.innerHTML = `
-          <div class="font-bold flex items-center gap-1">❌ Chưa chính xác!</div>
-          <div class="mt-0.5">Đáp án đúng là: <span class="font-mono font-bold text-rose-900 bg-rose-100 px-1.5 py-0.5 rounded">${correctAns}</span></div>
-          <div class="mt-1 text-slate-600"><b>Giải thích:</b> ${explanation}</div>
-        `;
-      }
-    };
-
-    window.checkChoiceAnswer = function(btnEl, exIdx, qIdx, encodedChoice, encodedAns, encodedExp) {
-      const choice = decodeURIComponent(encodedChoice);
-      const correctAns = decodeURIComponent(encodedAns);
-      const exp = decodeURIComponent(encodedExp);
-      const parentContainer = btnEl.parentElement;
-      const feedbackEl = document.getElementById(`feedback_${exIdx}_${qIdx}`);
-
-      // Disable all other buttons in this question
-      parentContainer.querySelectorAll('.choice-btn').forEach(b => {
-        b.disabled = true;
-        b.classList.remove('hover:border-blue-400');
-      });
-
-      feedbackEl.classList.remove('hidden');
-      if (choice === correctAns) {
-        btnEl.classList.add('bg-emerald-50', 'border-emerald-500', 'text-emerald-800', 'font-bold');
-        feedbackEl.className = "text-xs p-2.5 rounded-lg bg-emerald-50 text-emerald-800 border border-emerald-200 block";
-        feedbackEl.innerHTML = `<b>✅ Tuyệt vời!</b> ${exp}`;
-        triggerConfettiMini();
-        recordProgress();
-      } else {
-        btnEl.classList.add('bg-rose-50', 'border-rose-500', 'text-rose-800');
-        // Highlight correct button
-        parentContainer.querySelectorAll('.choice-btn').forEach(b => {
-          if (b.textContent.trim() === correctAns) {
-            b.classList.add('bg-emerald-50', 'border-emerald-500', 'text-emerald-800', 'font-bold');
+      // Update Nav active style
+      lessonsData.forEach(l => {
+        const el = document.getElementById(`nav-item-${l.id}`);
+        if (el) {
+          if (l.id === id) {
+            el.className = "w-full text-left px-3 py-2.5 rounded-xl text-xs font-semibold flex items-center justify-between transition-all touch-target bg-indigo-600 text-white shadow-sm";
+          } else {
+            el.className = "w-full text-left px-3 py-2.5 rounded-xl text-xs font-semibold flex items-center justify-between transition-all touch-target text-slate-700 hover:bg-slate-100";
           }
-        });
-        feedbackEl.className = "text-xs p-2.5 rounded-lg bg-rose-50 text-rose-800 border border-rose-200 block";
-        feedbackEl.innerHTML = `<b>❌ Chưa đúng!</b> Đáp án chuẩn: <span class="font-semibold">${correctAns}</span>. <br>${exp}`;
-      }
-    };
+        }
+      });
 
-    window.handleSortChipClick = function(word, cat, exIndex, chipIdx) {
-      const chip = document.getElementById(`chip_${exIndex}_${chipIdx}`);
-      if (!chip) return;
+      // Update Theory View
+      document.getElementById('theory-title').innerText = lesson.title;
+      document.getElementById('theory-desc').innerText = lesson.subtitle;
+      document.getElementById('theory-content').innerHTML = lesson.theory;
 
-      const targetBucket = document.getElementById(`bucket_${cat}_${exIndex}`);
-      chip.remove();
+      // Update Practice View
+      document.getElementById('practice-title').innerText = `Bài Tập: ${lesson.title}`;
+      renderPractice(lesson);
 
-      const badge = document.createElement('span');
-      badge.className = `px-2 py-1 text-xs font-semibold rounded-md shadow-2xs animate-fade-in ${
-        cat === 'count' ? 'bg-emerald-100 text-emerald-800' :
-        cat === 'uncount' ? 'bg-rose-100 text-rose-800' :
-        'bg-amber-100 text-amber-800'
-      }`;
-      badge.textContent = word;
-      targetBucket.appendChild(badge);
-
-      triggerConfettiMini();
-      recordProgress();
-    };
-
-    function triggerConfettiMini() {
-      if (typeof confetti === 'function') {
-        confetti({
-          particleCount: 25,
-          spread: 45,
-          origin: { y: 0.85 }
-        });
-      }
+      // Scroll to top
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    function recordProgress() {
-      if (!userProgress[currentLessonId]) {
-        userProgress[currentLessonId] = { answered: 0, completed: false };
-      }
-      userProgress[currentLessonId].answered += 1;
-      if (userProgress[currentLessonId].answered >= 3) {
-        userProgress[currentLessonId].completed = true;
-      }
-      localStorage.setItem('ielts_grammar_progress', JSON.stringify(userProgress));
-      updateGlobalProgress();
+    // Render Practice questions
+    function renderPractice(lesson) {
+      const container = document.getElementById('practice-content');
+      answersVisible = false;
+      document.getElementById('btn-toggle-ans-text').innerText = "Hiện Đáp Án & Giải Thích";
+
+      container.innerHTML = lesson.practiceQuestions.map((q, idx) => `
+        <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-3">
+          <div class="flex items-start justify-between gap-2">
+            <span class="font-bold text-slate-900 text-sm">${q.q}</span>
+            <span class="text-xs bg-slate-200 text-slate-600 px-2 py-0.5 rounded font-mono font-bold">Câu ${idx + 1}</span>
+          </div>
+          <div class="text-xs text-slate-500 italic">Gợi ý: ${q.hint}</div>
+          <div>
+            <input type="text" id="user-ans-${idx}" placeholder="Nhập đáp án của bạn..." class="w-full px-3.5 py-2 text-sm bg-white border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all font-medium touch-target" />
+          </div>
+          <div id="ans-box-${idx}" class="hidden p-3 bg-emerald-50 border border-emerald-200 rounded-lg text-xs space-y-1">
+            <div class="font-bold text-emerald-800 flex items-center gap-1.5">
+              <i class="ph-bold ph-check text-sm"></i> Đáp án đúng: <span class="font-mono bg-white px-2 py-0.5 rounded border border-emerald-300">${q.key}</span>
+            </div>
+            <p class="text-slate-600">${q.explanation}</p>
+          </div>
+        </div>
+      `).join('');
     }
 
-    function updateGlobalProgress() {
-      const totalCompleted = Object.values(userProgress).filter(p => p.completed).length;
-      globalScoreBadge.textContent = `${totalCompleted} / 14 Bài đã luyện xong`;
-    }
+    // Switch main tabs: Theory vs Practice
+    function switchMainTab(tab) {
+      currentTab = tab;
+      const viewTheory = document.getElementById('view-theory');
+      const viewPractice = document.getElementById('view-practice');
+      const btnTheory = document.getElementById('tab-theory-btn');
+      const btnPractice = document.getElementById('tab-practice-btn');
 
-    // Switch View Tabs
-    function switchView(mode) {
-      currentViewMode = mode;
-      if (mode === 'theory') {
-        tabTheory.className = "tab-btn px-4 py-2 text-xs sm:text-sm font-bold rounded-lg transition bg-white text-blue-600 shadow-xs";
-        tabPractice.className = "tab-btn px-4 py-2 text-xs sm:text-sm font-medium text-slate-600 rounded-lg hover:text-slate-900 transition";
-        theoryView.classList.remove('hidden');
-        practiceView.classList.add('hidden');
+      if (tab === 'theory') {
+        viewTheory.classList.remove('hidden');
+        viewPractice.classList.add('hidden');
+        btnTheory.className = "flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-bold transition-all bg-white text-indigo-700 shadow-sm";
+        btnPractice.className = "flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold transition-all text-slate-600 hover:text-slate-900";
       } else {
-        tabPractice.className = "tab-btn px-4 py-2 text-xs sm:text-sm font-bold rounded-lg transition bg-white text-blue-600 shadow-xs";
-        tabTheory.className = "tab-btn px-4 py-2 text-xs sm:text-sm font-medium text-slate-600 rounded-lg hover:text-slate-900 transition";
-        practiceView.classList.remove('hidden');
-        theoryView.classList.add('hidden');
+        viewPractice.classList.remove('hidden');
+        viewTheory.classList.add('hidden');
+        btnPractice.className = "flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-bold transition-all bg-white text-indigo-700 shadow-sm";
+        btnTheory.className = "flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold transition-all text-slate-600 hover:text-slate-900";
       }
     }
 
-    tabTheory.onclick = () => switchView('theory');
-    tabPractice.onclick = () => switchView('practice');
+    // Toggle All Answers
+    function toggleAllAnswers() {
+      answersVisible = !answersVisible;
+      const lesson = lessonsData.find(l => l.id === currentLessonId);
+      if (!lesson) return;
 
-    // Sidebar Interactions (Mobile & iPad)
-    function openSidebar() {
-      sidebar.classList.remove('-translate-x-full');
-      sidebarOverlay.classList.remove('hidden');
+      lesson.practiceQuestions.forEach((_, idx) => {
+        const box = document.getElementById(`ans-box-${idx}`);
+        if (box) {
+          if (answersVisible) box.classList.remove('hidden');
+          else box.classList.add('hidden');
+        }
+      });
+
+      document.getElementById('btn-toggle-ans-text').innerText = answersVisible ? "Ẩn Đáp Án & Giải Thích" : "Hiện Đáp Án & Giải Thích";
     }
-    function closeSidebar() {
-      sidebar.classList.add('-translate-x-full');
-      sidebarOverlay.classList.add('hidden');
+
+    // Check Answers
+    function checkAnswers() {
+      const lesson = lessonsData.find(l => l.id === currentLessonId);
+      if (!lesson) return;
+
+      lesson.practiceQuestions.forEach((q, idx) => {
+        const input = document.getElementById(`user-ans-${idx}`);
+        const box = document.getElementById(`ans-box-${idx}`);
+        if (!input || !box) return;
+
+        box.classList.remove('hidden');
+        const userVal = input.value.trim().toLowerCase().replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, "");
+        const keyVal = q.key.trim().toLowerCase().replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, "");
+
+        if (userVal === keyVal || userVal.includes(keyVal)) {
+          input.className = "w-full px-3.5 py-2 text-sm bg-emerald-50 border-2 border-emerald-500 rounded-lg text-emerald-900 font-bold";
+        } else {
+          input.className = "w-full px-3.5 py-2 text-sm bg-rose-50 border-2 border-rose-400 rounded-lg text-rose-900 font-bold";
+        }
+      });
+
+      answersVisible = true;
+      document.getElementById('btn-toggle-ans-text').innerText = "Ẩn Đáp Án & Giải Thích";
     }
 
-    mobileMenuBtn.onclick = openSidebar;
-    closeSidebarBtn.onclick = closeSidebar;
-    sidebarOverlay.onclick = closeSidebar;
-
-    // Search filter
-    lessonSearch.oninput = (e) => {
-      renderLessonNavigation(e.target.value);
-    };
-
-    // Initialize App
+    // Init App on load
     window.addEventListener('DOMContentLoaded', () => {
-      renderLessonNavigation();
+      initNav();
       selectLesson(2);
     });
   </script>
